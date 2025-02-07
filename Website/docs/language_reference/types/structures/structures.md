@@ -1,16 +1,13 @@
----
-sidebar_position: 4
----
-
-# Data structures and OOP
+# Data Structures
 :::info[Under Construction]
 :::
 
-Data structures, also known as complex data types, are type abstractions o manipulate data in expecific ways that the
-primitive data types don't allow.
+Data structures, also known as complex data types, are type abstractions
+to manipulate data in expecific ways that the primitive data types don't allow.
 
-Data structures can hold a huge ammount of primmitives, other data structures and even functinons, allowing it to be a
-powerfull and rich tool for data storage, organization and encapsulation.
+Data structures can include a huge ammount of primmitives, other data structures
+and even functinons, allowing it to be a powerfull and rich tool for data storage,
+organization and encapsulation.
 
 ---
 ## Structures

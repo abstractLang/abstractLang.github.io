@@ -1,11 +1,9 @@
 ---
-sidebar_position: 5
+sidebar_position: 1
 ---
 
-# Packet
-:::info[Under Construction]
-:::
-:::danger[To be Reworked On!]
+# Packets (deprecated)
+:::danger[Deprecated]
 :::
 
 While a `struct` may reorganize it layout on memory in unexpected ways, packets are made to be a exact

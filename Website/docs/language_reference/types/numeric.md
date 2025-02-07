@@ -6,15 +6,13 @@ sidebar_position: 1
 :::info[Under Construction]
 :::
 
-Numbers are the base of math and they are needed in every logical process. \
+Numbers are the base of math and every logical process.
 The Abstract language allows the user to choose between a long list
 of numeric types for the best result, performance and memory management
 for their application.
 
 ---
 ## Integer Numbers
-:::warning[Not Implemented!]
-:::
 
 The most simple way of representing numbers is with integers. Integers
 represents an always complete (non-fractional) value, never allowing
@@ -23,34 +21,46 @@ any decimal point.
 For historical, computational and memory optimal reasons, the computer gives
 an extensive range of possibilities about numeric integer values.
 
-To declare an integer type in the Abstract Language, use the letter i or u
-to declare the kind of the integer (signed or unsigned) and a number to
-declare the size, in bits, that this data will occupy in memory.
+To declare an integer type in the Abstract Language, use the low-case
+letter `i` or `u` to declare the kind of the integer (signed or unsigned
+respectively) and a number to declare the size, in bits, that this data
+will occupy in memory.
 
 Examples of valid integer types are:
 ```abs
 i8   # signed 8-bit (1 byte) integer
 u16  # unsigned 16-bit integer
 i128 # signed 128-bit integer
+u256 # unsigned 256-bit integer
+i1   # signed single bit (0 or -1)
 ```
 
-The following table shows every integer type and its corresponding type
-in the C programming language:
+The size in bits must be a integer inside the range of 1 to 256.
 
-| Alias     | Equivalent in C | Size                | Range                           | Implementation           |
-|-----------|:---------------:|:-------------------:|:-------------------------------:|:------------------------:|
-| i8        | int8_t          | 8-bits / 1 byte     | -128 to 127                     | [Std.Types.SignedInteger8](#) |
-| i16       | int16_t         | 16-bits / 2 bytes   | -32,768 to 32,767               | [Std.Types.SignedInteger16](#) |
-| i32       | int32_t         | 32-bits / 4 bytes   | -2,147,483,648 to 2,147,483,647 | [Std.Types.SignedInteger32](#) |
-| i64       | int64_t         | 64-bits / 8 bytes   | -9.2x10¹⁸ to 9.2x10¹⁸           | [Std.Types.SignedInteger64](#) |
-| i128      | n/a             | 128-bits / 16 bytes | -1.7x10³⁸ to 1.7x10³⁸           | [Std.Types.SignedInteger128](#) |
-| iptr      | intptr_t        | (target dependent)  | (target dependent)              | (target dependent) |
-| u8 (byte) | uint8_t         | 8-bits / 1 byte     | 0 to 255                        | [Std.Types.UnsignedInteger8](#) |
-| u16       | uint16_t        | 16-bits / 2 bytes   | 0 to 65,535                     | [Std.Types.UnsignedInteger16](#) |
-| u32       | uint32_t        | 32-bits / 4 bytes   | 0 to 4,294,967,295              | [Std.Types.UnsignedInteger32](#) |
-| u64       | uint64_t        | 64-bits / 8 bytes   | 0 to 1.8x10¹⁹                   | [Std.Types.UnsignedInteger64](#) |
-| u128      | n/a             | 128-bits / 16 bytes | 0 to 3.4x10³⁸                   | [Std.Types.UnsignedInteger128](#) |
-| uptr      | uintptr_t       | (target dependent)  | (target dependent)              | (target dependent) |
+:::info[Although,]
+it is reccomended to avoid bit lengths that are not a power
+of two greater or equal than 8 (8, 16, 32, 64, 128, etc.).
+Most real machines will peform calculations faster in this range, as
+the effort to convert the value from and to the defined alignment is
+lower. \
+More about it will be covered in  [alignment](../memory/alignment).
+:::
+
+The following non-exaustive table shows some common integer types and
+its corresponding type in the C programming language:
+
+| Alias     | Equivalent in C | Size                | Range                           |
+|-----------|:---------------:|:-------------------:|:-------------------------------:|
+| i8        | int8_t          | 8-bits              | -128 to 127                     |
+| i16       | int16_t         | 16-bits             | -32,768 to 32,767               |
+| i32       | int32_t         | 32-bits             | -2,147,483,648 to 2,147,483,647 |
+| i64       | int64_t         | 64-bits             | -9.2x10¹⁸ to 9.2x10¹⁸           |
+| iptr      | intptr_t        | (target dependent)  | (target dependent)              |
+| u8 (byte) | uint8_t         | 8-bits              | 0 to 255                        |
+| u16       | uint16_t        | 16-bits             | 0 to 65,535                     |
+| u32       | uint32_t        | 32-bits             | 0 to 4,294,967,295              |
+| u64       | uint64_t        | 64-bits             | 0 to 1.8x10¹⁹                   |
+| uptr      | uintptr_t       | (target dependent)  | (target dependent)              |
 
 The `iptr` and `uptr` types are special general-purpose integers that are defined
 by the target. It is equivalent to the size of a memory pointer on the specific

@@ -21,7 +21,7 @@ states without messing the values.
 
 | Alias | Size            | Implementation         |
 |-------|:---------------:|:----------------------:|
-| bool  | 8 bits / 1 byte | [Std.Types.Boolean](#) |
+| bool  | 1-bit           | [Std.Types.Boolean](#) |
 
 ```abs
 let bool cake = false
@@ -35,17 +35,15 @@ The cake is a lie!
 
 ---
 ## Strings
-:::warning[Not Implemented!]
-:::
 
 A string is a data structure that is able to store text data. A string can be
 used to store and reproduce text characters easily. \
 In Abstract, every string is encoded in UTF-8, with characters varying from 1-4
 bytes in length.
 
-| Alias  | Size                              | Implementation         |
-|--------|:---------------------------------:|:----------------------:|
-| string | variable (heap allocated content) | [Std.Types.String](#)  |
+| Alias  | Size                                            | Implementation         |
+|--------|:-----------------------------------------------:|:----------------------:|
+| string | variable (content is heap/statically-allocated) | [Std.Types.String](#)  |
 
 ```abs
 let string mySpeek = "Hello, World!"
@@ -70,14 +68,27 @@ getting a character from an index of a string. \
 As every string in Abstract is UTF-8, every character have the same length as a `i32`
 in memory, being able to hold every possible character of the Unicode char set.
 
-| Alias  | Size              | Implementation            |
-|--------|:-----------------:|:-------------------------:|
-| char   | 32 bits / 4 bytes | [Std.Types.Character](#)  |
+:::note
+Keep in mind that some unicode characters may use more than one character to be stored,
+e.g. `"🇧🇷" = '🇧' + '🇷'`. \
+The Char struct cannot store that characters and instead need to be used with another
+Char value.
+:::
+
+Chars will also be castable from/to integers lower than 32 bits e.g. `u8`, `i7`
+or `u32`.
+
+| Alias  | Size     | Implementation            |
+|--------|:--------:|:-------------------------:|
+| char   | 32 bits  | [Std.Types.Character](#)  |
+
+to declarate a Char data type, use `char`:
 
 ```abs
 const string myString = "Hello, World!"
 
 let char myChar = 'U'
-myChar = myString[7] # 'W'
+myChar = myString[7]
+Std.Console.writeln(myChar as byte) # '87'
 
 ```
