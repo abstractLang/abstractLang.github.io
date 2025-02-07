@@ -144,8 +144,7 @@ sam.addExp(5)
 
 ### Integers
 
-Integer types follows the same format as the [default integers](../types/numeric), but can have
-any number greater than zero of bits to represent it on memory.
+Integer types follows the same format as the default integers.
 
 ```abs
 # unsigned integers
