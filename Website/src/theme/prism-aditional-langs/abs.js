@@ -4,7 +4,7 @@ Prism.languages.abs = {
 		greedy: true
 	},
 
-	'keyword': /\b(import|from|namespace|func|struct|packet|packed|match|switch|case|enum|default|let|const|new|destroy|Flag|as|in|by|for|while|break|if|elif|else|and|or|try|catch|throw|return)\b/,
+	'keyword': /\b(import|from|namespace|func|struct|match|switch|case|enum|default|let|const|new|destroy|Flag|as|in|by|for|while|break|if|elif|else|and|or|try|catch|throw|return)\b/,
 	'type': /(\!|\[\d*\]|\*|\?)*([iu](256|25[0-5]|2[0-4][0-9]|1?[0-9]{1,2}|ptr)|byte|f32|f64|float|double|string|char|bool|type|anytype|void|noreturn|fault)\b/,
 
 	'fault': {
