@@ -24,12 +24,12 @@ and alike.
 
 An example on the use of types:
 ```abs
-import from Std.Console
+from Std.Console import
 
 # The function main will ask for a list of strings
 # to be called. It also declares a return type
 # 'void', meaning it will not return any valid data.
-@public func void main([]string args) {
+@public func main([]string args) !void {
 
     # Let's declare 3 variable data spaces in program's
     # memory, one for a signed byte, short and integer.
@@ -63,10 +63,10 @@ import from Std.Console
 }
 
 # Overloads of the function 'foo'
-@public func void foo(i8 value) {
+@public func foo(i8 value) {
     writeln("The value is a byte and it is \{value}!")
 }
-@public func void foo(i32 value) {
+@public func foo(i32 value) {
     writeln("The value is an int32 and it is \{value}!")
 }
 
