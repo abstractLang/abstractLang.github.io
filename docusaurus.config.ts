@@ -6,14 +6,14 @@ const config: Config = {
   title: 'Abstract Programming Language',
   favicon: 'img/favicon.ico',
 
-  url: 'https://lumi2021.github.io',
-  baseUrl: '/abstract/',
+  url: 'https://abstractlang.github.io/',
+  baseUrl: '/',
 
-  organizationName: 'lumi2021',
+  organizationName: 'abstractLang',
   projectName: 'Abstract',
 
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenMarkdownLinks: 'throw',
 
   i18n: {
     defaultLocale: 'en',
@@ -28,7 +28,7 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
-          editUrl: 'https://github.com/abstractLang/abstract/tree/main/Website',
+          editUrl: 'https://github.com/abstractLang/abstractLang.github.io/tree/main/',
           admonitions: {
             keywords: [
               'under-construction',
@@ -44,7 +44,7 @@ const config: Config = {
             xslt: true,
           },
 
-          editUrl: 'https://github.com/abstractLang/abstract/tree/main/Website',
+          editUrl: 'https://github.com/abstractLang/abstractLang.github.io',
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
           onUntruncatedBlogPosts: 'warn',
@@ -73,7 +73,7 @@ const config: Config = {
         },
         {to: '/blog', label: 'Blog', position: 'left'},
         {
-          href: 'https://github.com/abstractLang/abstract',
+          href: 'https://github.com/abstractLang/Abstract',
           label: 'GitHub',
           position: 'right',
         },
@@ -86,8 +86,8 @@ const config: Config = {
       copyright: `Copyright © ${new Date().getFullYear()} Abstract Programming Language. Built with Docusaurus.`,
     },
     prism: {
-      theme: prismThemes.oneLight,
-      darkTheme: prismThemes.okaidia,
+      theme: prismThemes.gruvboxMaterialLight,
+      darkTheme: prismThemes.palenight,
     },
   } satisfies Preset.ThemeConfig,
 };
