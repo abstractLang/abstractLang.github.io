@@ -1,7 +1,6 @@
 name: Build Website
 on:
   push:
-    paths: ['./']
     branches: ['main']
     
   workflow_dispatch:
