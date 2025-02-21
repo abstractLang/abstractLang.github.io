@@ -41,6 +41,10 @@ Prism.languages.abs = {
 						inside: Prism.languages.abs
 					}
 				}
+			},
+
+			'tag': { // escape char
+				pattern: /\\./
 			}
 		}
 	},
