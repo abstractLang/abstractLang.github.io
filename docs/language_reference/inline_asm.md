@@ -18,10 +18,13 @@ connection.
 As a example of use, being targeted to x86_64 assemby:
 
 ```abs
-import from Std.Console
-import { Instructions as opcode, ReferenceOperators as refas } from Std.System.Assembly.x86_64Assembly
+from Std.Console import
+from Std.System.Assembly.x86_64Assembly import {
+    Instructions as opcode,
+    ReferenceOperators as refas
+}
 
-func void foo()
+func foo()
 {
 
     let string message = "Hello, World!";

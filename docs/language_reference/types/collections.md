@@ -18,7 +18,7 @@ built-in data types or structures.
 Array lists are one of the most basic collection type in programming. They are based on the concept of a contiguous
 sequence of data in the memory that can be indexed by its position on the list.
 
-```C
+```C title='C'
 // In C and and in most programming languages, this is a example
 // of how the user can create a sequence of integers in the memory.
 int[10] myArray = {0, 3, 6, 9, 12, 15, 18, 21, 24, 27};
@@ -79,10 +79,12 @@ The declared number is the index, the position of the desired element on the lis
 The index operator will return an element from the array, at the specified index, as follows:
 ```abs
 let []i32 myArray = [10, 20, 30, 40, 50]
-let i32 elementAt1 = myArray[1] # my1rtElement = 20
-let i32 elementAt2 = myArray[2] # my2rtElement = 30
+let i32 elementAt1 = myArray[1] # = 20
+let i32 elementAt2 = myArray[2] # = 30
 
 # The index also works with variables
+# Any numeric integer data type can be used as
+# a indexer!
 let i8 myIndex = 0
 Std.Console.log(myArray[myIndex]) # out: 10
 myIndex = 4

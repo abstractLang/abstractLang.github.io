@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 # Lifetime And Ownership
@@ -29,7 +29,7 @@ where these data is being used and where it is being discarted.
 
 let's take the following code as an example:
 ```abs
-func !void main() {
+func main() !void {
     const message1 = "Hello, World!"
     sayMessage(message1)
     let message2 = "Today is a good day."
@@ -38,7 +38,7 @@ func !void main() {
     sayMessage(message2)
 }
 
-func void sayMessage(string msg) {
+func sayMessage(string msg) {
     Std.Console.writeln(msg)
 }
 ```
@@ -47,7 +47,7 @@ With a fast analysis, is not hard to understand when a data reference becomes
 inaccessible:
 
 ```abs
-func !void main() {
+func main() !void {
     const message1 = "Hello, World!"
     sayMessage(message1)
     let message2 = "Today is a good day."
@@ -58,7 +58,7 @@ func !void main() {
     # out of scope after here
 }
 
-func void sayMessage(string msg) {
+func sayMessage(string msg) {
     Std.Console.writeln(msg)
     # `msg` becomes out of scope
     # after here
@@ -69,7 +69,7 @@ Also it is possible to go more further and identify when a reference is no
 more used or it value has changed:
 
 ```abs
-func !void main() {
+func main() !void {
     const message1 = "Hello, World!"
     sayMessage(message1)
     # `message1` is not used anymore
@@ -83,7 +83,7 @@ func !void main() {
     # after here
 }
 
-func void sayMessage(string msg) {
+func sayMessage(string msg) {
     Std.Console.writeln(msg)
     # `msg` is not more used
     # and becomes out of scope
@@ -97,7 +97,7 @@ to make sure that any heap-allocated data from it is
 well deallocated:
 
 ```abs
-func !void main() {
+func main() !void {
     const message1 = "Hello, World!"
     sayMessage(message1)
     destroy message1 # `message1` is not used anymore
@@ -115,7 +115,7 @@ func !void main() {
     # after here
 }
 
-func void sayMessage(string msg) {
+func sayMessage(string msg) {
     Std.Console.writeln(msg)
     # `msg` is not more used
     # and becomes out of scope
@@ -134,16 +134,18 @@ Knowing as every struct can implement a destructor, the language
 will follow the use of variables inside functions.
 
 When a variable is created inside a function, it data is owned by this function.
-When a variable is returned by the function, it data is owned by the caller too.
+When a variable is returned by the function, it data is owned by the caller.
 
-When a function returns (dies), it will, before of return the execution
-to the caller, call the destructor of every structure that is owned ONLY
-by the current function. after the function die, the references that was owned
-but do not got deallocated will lost their ownership of this function and be
-deallocated only when the ownership count of it be 0.
+When a function returns (dies), all the references that was owned by it will
+lose the ownership of this function.
 
-Instance data also have a lifetime, but thacked by the ownership of the
-instance. When the instance dies and it destructor is called, it should
+When a value do not have any more owners, the destructor of this value type
+is called.
+
+All this proccess should be handled in compiling thme.
+
+Data inside objects also have a lifetime, but tracked by the ownership of
+the instance. When the instance dies and it destructor is called, it should
 also call the destructor of it owned data.
 
 -- lumi
