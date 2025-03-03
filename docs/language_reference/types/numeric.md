@@ -79,7 +79,9 @@ Floating numbers are somewhat complicated numerical values used to reproduce fra
 As the table above, the Abstract floating types are listed below, with their
 corresponding type in the C programming language:
 
-| Alias        | Equivalent in C | Implementation                |
-|--------------|:---------------:|:-----------------------------:|
-| f32 (float)  | float           | [Std.Types.SingleFloating](#) |
-| f64 (double) | double          | [Std.Types.DoubleFloating](#) |
+| Alias   | Equivalent in C | Implementation                   |
+|---------|:---------------:|:--------------------------------:|
+| f16     | n/a             | [Std.Types.HalfFloating](#)      |
+| f32     | float           | [Std.Types.SingleFloating](#)    |
+| f64     | double          | [Std.Types.DoubleFloating](#)    |
+| f128    | n/a             | [Std.Types.QuadFloating](#)      |
