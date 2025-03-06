@@ -61,8 +61,8 @@ const config: Config = {
     navbar: {
       title: 'Abstract',
       logo: {
-        alt: 'Abstract Programming Language',
-        src: 'img/logo.svg',
+        alt: 'Abstract',
+        src: 'img/logo.png',
       },
       items: [
         {
