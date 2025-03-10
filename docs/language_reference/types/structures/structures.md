@@ -16,7 +16,7 @@ Structures are the way of how you can declarate a new data type in the Abstract 
 of primitives, privatize certain variables in closed scopes, abstract the management of huge amonts of data, and go on.
 
 A example of a structure being declarated and used in Abstract is:
-```abs
+```abss are lost or get out of scope, the best practice is aways request the data destruction to make sure that any heap-allocated data from it is well deallocated:
 struct Biography {
 	@public let u8 myAge
 	@public let string myName

@@ -92,3 +92,23 @@ myChar = myString[7]
 Std.Console.writeln(myChar as byte) # '87'
 
 ```
+
+---
+## Void
+:::warning[Not Implemented!]
+:::
+
+Void is not a concrete type and it is used to indicate that a value is not returned.
+```abs
+void
+```
+
+---
+## NoReturn
+:::warning[Not Implemented!]
+:::
+
+NoReturn is not a concrete type and it is used to indicate that a function do not returns.
+```abs
+noreturn
+```

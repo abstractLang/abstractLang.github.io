@@ -79,21 +79,38 @@ As instance, let's suppose we have the following structure layout for a page of 
 |:----------|:----------:|:-------------:|:---------------:|:-------------:|:-----------:|
 | **data:** | tag (enum) | active (bool) | reserved (void) | name (5 * u8) | index (u16) |
 
-As the data is not alligned, packets needs to be used to represent this table.
+As the data follows a structure with specific defined fields, plus there are some
+values that are not 8-bit alligned, packets should be used to represent this table.
 A representation of this table should be:
 ```abs
 ### The range, in bits, are:
-	- tag:	  0 .. 8
+	- tag:      0 .. 8
 	- active:   8
 	- reserved: 32 .. 80
-	- name:	 80 .. 120
-	- index:	120 .. 256
+	- name:     80 .. 120
+	- index:    120 .. 256
 ###
 @public @packed struct TablePage {
 	@lay(..8)   Tag tag
-				bool active					 # alignment of 1-bit
+				bool active                     # alignment of 1-bits
 	@off(80)
-				StringBuffer(5) name			# alignment of 8-bit * 5
-				u16 index					   # alignment of 16-bit
+				StringBuffer(5) name            # alignment of 8-bits * 5
+				u16 index                       # alignment of 16-bits
+}
+```
+
+It is also possible to use bytes instead of bits with the range expression's step value.
+Bothe `@lay` and `@pad` attributes will use the step value as a multiplier.
+e.g.:
+
+```abs
+# No need to count the bits, as we are using bytes!
+
+@public @packed struct TablePage {
+    @lay(..4)   Tag tag
+                bool active                     # alignment of 1-bits
+    @off(10)
+                StringBuffer(5) name            # alignment of 8-bits * 5
+                u16 index                       # alignment of 16-bits
 }
 ```

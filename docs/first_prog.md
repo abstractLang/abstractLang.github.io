@@ -17,9 +17,14 @@ program.
 
 TODO
 
-To start a new project, begin creating a new directory folder to
-organize the project into the same place. For this example, let's
-call the folder `MyProgram`;
+To start a new project, begin creating a new directory folder that
+will be used as the root namespace. For this example, let's call
+the folder `MyProgram.
+
+```shell title="Command Line"
+mkdir MyProgram
+cd MyProgram
+```
 
 ---
 ## Writing the program
@@ -29,9 +34,9 @@ Inside the `MyProgram` folder, create a script file with the
 
 Inside the script file, write the following code:
 ```abs title="main.a"
-import from Std.Console
+from Std.Console import
 
-function !void main() {
+func main() !void {
 	writeln("Hello, World!")
 	writeln("I'm coding in abstract!")
 }
@@ -39,34 +44,38 @@ function !void main() {
 ```
 
 ---
-## Building
+## Running the Program
 
-Abstract offers two ways to build the program: Using the command
-line to directly call the compiler or use a build script to talk
-to the compiler for you.
+Abstract offers two ways to build and run the program: Using the
+command line to directly call the compiler or use a build script
+to talk to the compiler for you.
 
 ### Building with the command line
 
-Using the command line, you can invoke the following command to build
-and run the scrpt:
+Using the command line, you can invoke the following command to run the
+project in the current workspace:
 
-```shell
-abs run main.a -o bin/
+```shell title="Command Line"
+abs run
 ```
 
+### Running With a Build Automatization Script
 
-### Building with a build script
+To use a build automatization script, create a new script with the `.a`
+that should be called `build.a`.
 
-To use a build script, create a new script with the `.a`
-extension like `build.a`.
-
-To use a build script, we recommend you to follow this
-directory organization:
+This is a example of a standard for the file and directory organization
+for using build automatization scripts:
 
 ```text title="MyProgram/"
-Src/
+src/
  '- main.a   
 build.a
+```
+
+the creation of this istructure can be automatized though the command:
+```shell title="Command Line"
+abs init
 ```
 
 TODO
