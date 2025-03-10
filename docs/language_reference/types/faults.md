@@ -75,19 +75,19 @@ handle it, the fault wrapper provide the `.onCatch()` call and the `catch` opera
 # If the invoke get aborted, the catch block will be executed before
 # the execution continue
 tryToDoSomething() catch(fault err)
-    Std.Console.writeln("A fault of type \{err.name} has occurred!")
+	Std.Console.writeln("A fault of type \{err.name} has occurred!")
 tryToReturnSomething() catch {
-    Std.Console.writeln("Aborting due internal error!")
-    throw
+	Std.Console.writeln("Aborting due internal error!")
+	throw
 }
 
 # As well
 tryToDoSomething().onCatch((fault err) => {
-    Std.Console.writeln("A fault of type \{err.name} has occurred!") })
+	Std.Console.writeln("A fault of type \{err.name} has occurred!") })
 tryToReturnSomething().onCatch(() => {
-    Std.Console.writeln("The process could not be completed,")
-    Std.Console.writeln("aborting due internal error!")
-    throw
+	Std.Console.writeln("The process could not be completed,")
+	Std.Console.writeln("aborting due internal error!")
+	throw
 })
 ```
 
@@ -130,11 +130,11 @@ Inside this function, we create a condition to verify the error as follows:
 ```abs
 func !f32 safeDivide(f32 numerator, f32 denominator)
 {
-    if (denominator == 0) {
-        # Raise a fault here!
-    }
+	if (denominator == 0) {
+		# Raise a fault here!
+	}
 
-    return numerator / denominator
+	return numerator / denominator
 }
 ```
 
@@ -152,13 +152,13 @@ finish the name aways with `Fault`.
 ```abs
 func !f32 safeDivide(f32 numerator, f32 denominator)
 {
-    if (denominator == 0) {
-        # Use the `new` operator to create a
-        # fresh instance
-        throw new DenominatorCannotBeZeroFault()
-    }
+	if (denominator == 0) {
+		# Use the `new` operator to create a
+		# fresh instance
+		throw new DenominatorCannotBeZeroFault()
+	}
 
-    return numerator / denominator
+	return numerator / denominator
 }
 ```
 
@@ -170,11 +170,11 @@ different parameter types in the same scope!
 ```abs
 func !f32 safeDivide(f32 numerator, f32 denominator)
 {
-    if (denominator == 0) {
-        throw new DenominatorCannotBeZeroFault(
-            "Denominator value cannot be 0!", numerator, denominator)
-    }
+	if (denominator == 0) {
+		throw new DenominatorCannotBeZeroFault(
+			"Denominator value cannot be 0!", numerator, denominator)
+	}
 
-    return numerator / denominator
+	return numerator / denominator
 }
 ```

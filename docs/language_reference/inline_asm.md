@@ -24,10 +24,10 @@ import { Instructions as opcode, ReferenceOperators as refas } from Std.System.A
 func void foo()
 {
 
-    let string message = "Hello, World!";
+	let string message = "Hello, World!";
 
-    opcode.MOV(.RDI, refas.memptr(message))
-    opcode.CALL(refas.memptr(writeln))
+	opcode.MOV(.RDI, refas.memptr(message))
+	opcode.CALL(refas.memptr(writeln))
 
 }
 

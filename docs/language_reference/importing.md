@@ -40,11 +40,11 @@ import from Std.Console
 
 namespace MyProgram {
 
-    func !void main() {
-        # `writeln` is not a member of the `MyProgram` namespace,
-        # in reality it is being imported from `Std.Console`!
-        writeln("Hello, World!")
-    }
+	func !void main() {
+		# `writeln` is not a member of the `MyProgram` namespace,
+		# in reality it is being imported from `Std.Console`!
+		writeln("Hello, World!")
+	}
 
 }
 ```
@@ -74,9 +74,9 @@ import { Console, Memory } from Std
 # `Console` and `Memory` is now directly referenceable
 
 namespace MyProgram {
-    func !void main() {       
-        Console.writeln("Hello, World!")
-    }
+	func !void main() {	   
+		Console.writeln("Hello, World!")
+	}
 }
 ```
 
@@ -86,12 +86,12 @@ import { write } from Std.Console
 
 namespace MyProgram {
 
-    func !void main() {       
-        write("Hello, World, ")
-        # Other references still need to be refered
-        # from the root!
-        Std.Console.writeln("I'm importing references!")
-    }
+	func !void main() {	   
+		write("Hello, World, ")
+		# Other references still need to be refered
+		# from the root!
+		Std.Console.writeln("I'm importing references!")
+	}
 
 }
 ```
@@ -108,12 +108,12 @@ import { write, writeln as writeLine } from Std.Console
 
 namespace MyProgram {
 
-    func !void main() {       
-        write("Hello, World, ")
-        # Instead of refering as `writeln`, the function is
-        # refered as `writeLine`!
-        writeLine("I'm importing references!")
-    }
+	func !void main() {	   
+		write("Hello, World, ")
+		# Instead of refering as `writeln`, the function is
+		# refered as `writeLine`!
+		writeLine("I'm importing references!")
+	}
 
 }
 ```

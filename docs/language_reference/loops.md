@@ -16,8 +16,8 @@ let index = 0
 while index++ < 10 => Std.Console.log("Hello, World!")
 
 while index >= 0 => {
-    index -= 2
-    Std.Console.log("Hello, Scopped World!")
+	index -= 2
+	Std.Console.log("Hello, Scopped World!")
 }
 ```
 

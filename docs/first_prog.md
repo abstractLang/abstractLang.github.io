@@ -32,8 +32,8 @@ Inside the script file, write the following code:
 import from Std.Console
 
 function !void main() {
-    writeln("Hello, World!")
-    writeln("I'm coding in abstract!")
+	writeln("Hello, World!")
+	writeln("I'm coding in abstract!")
 }
 
 ```

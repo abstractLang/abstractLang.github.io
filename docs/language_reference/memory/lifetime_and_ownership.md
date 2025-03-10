@@ -30,16 +30,16 @@ where these data is being used and where it is being discarted.
 let's take the following code as an example:
 ```abs
 func !void main() {
-    const message1 = "Hello, World!"
-    sayMessage(message1)
-    let message2 = "Today is a good day."
-    sayMessage(message2)
-    message2 = "How are you going?"
-    sayMessage(message2)
+	const message1 = "Hello, World!"
+	sayMessage(message1)
+	let message2 = "Today is a good day."
+	sayMessage(message2)
+	message2 = "How are you going?"
+	sayMessage(message2)
 }
 
 func void sayMessage(string msg) {
-    Std.Console.writeln(msg)
+	Std.Console.writeln(msg)
 }
 ```
 
@@ -48,20 +48,20 @@ inaccessible:
 
 ```abs
 func !void main() {
-    const message1 = "Hello, World!"
-    sayMessage(message1)
-    let message2 = "Today is a good day."
-    sayMessage(message2)
-    message2 = "How are you going?"
-    sayMessage(message2)
-    # `message1` and `message2` becomes
-    # out of scope after here
+	const message1 = "Hello, World!"
+	sayMessage(message1)
+	let message2 = "Today is a good day."
+	sayMessage(message2)
+	message2 = "How are you going?"
+	sayMessage(message2)
+	# `message1` and `message2` becomes
+	# out of scope after here
 }
 
 func void sayMessage(string msg) {
-    Std.Console.writeln(msg)
-    # `msg` becomes out of scope
-    # after here
+	Std.Console.writeln(msg)
+	# `msg` becomes out of scope
+	# after here
 }
 ```
 
@@ -70,24 +70,24 @@ more used or it value has changed:
 
 ```abs
 func !void main() {
-    const message1 = "Hello, World!"
-    sayMessage(message1)
-    # `message1` is not used anymore
-    let message2 = "Today is a good day."
-    sayMessage(message2)
-    # `message2` current value is lost here
-    message2 = "How are you going?"
-    sayMessage(message2)
-    # `message2` is not more used
-    # and becomes out of scope
-    # after here
+	const message1 = "Hello, World!"
+	sayMessage(message1)
+	# `message1` is not used anymore
+	let message2 = "Today is a good day."
+	sayMessage(message2)
+	# `message2` current value is lost here
+	message2 = "How are you going?"
+	sayMessage(message2)
+	# `message2` is not more used
+	# and becomes out of scope
+	# after here
 }
 
 func void sayMessage(string msg) {
-    Std.Console.writeln(msg)
-    # `msg` is not more used
-    # and becomes out of scope
-    # after here
+	Std.Console.writeln(msg)
+	# `msg` is not more used
+	# and becomes out of scope
+	# after here
 }
 ```
 
@@ -98,28 +98,28 @@ well deallocated:
 
 ```abs
 func !void main() {
-    const message1 = "Hello, World!"
-    sayMessage(message1)
-    destroy message1 # `message1` is not used anymore
+	const message1 = "Hello, World!"
+	sayMessage(message1)
+	destroy message1 # `message1` is not used anymore
 
-    let message2 = "Today is a good day."
-    sayMessage(message2)
-    destroy message2 # `message2` current value is lost here
+	let message2 = "Today is a good day."
+	sayMessage(message2)
+	destroy message2 # `message2` current value is lost here
 
-    message2 = "How are you going?"
-    sayMessage(message2)
-    destroy message2
+	message2 = "How are you going?"
+	sayMessage(message2)
+	destroy message2
 
-    # `message2` is not more used
-    # and becomes out of scope
-    # after here
+	# `message2` is not more used
+	# and becomes out of scope
+	# after here
 }
 
 func void sayMessage(string msg) {
-    Std.Console.writeln(msg)
+	Std.Console.writeln(msg)
     # `msg` is not more used
-    # and becomes out of scope
-    # after here
+	# and becomes out of scope
+	# after here
 }
 ```
 

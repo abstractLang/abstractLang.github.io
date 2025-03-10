@@ -37,7 +37,7 @@ a line breaks before or after it, the compiler will ignore this break. e.g.:
 
 ```abs
 Std.Console.writeln("This string"
-    + " is being used to break this line!")
+	+ " is being used to break this line!")
 
 # Is interpreted as
 Std.Console.writeln("This string" + " is being used to break this line!")
@@ -73,7 +73,7 @@ comment.
 ```abs
 IAm.executeable()
 ###
-    I am a comment!
-    Me too!
+	I am a comment!
+	Me too!
 ###
 ```

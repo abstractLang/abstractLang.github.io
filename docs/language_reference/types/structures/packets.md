@@ -18,11 +18,11 @@ have full controll of the layout of all the bits stored on it.
 Packets can be implemented as structs, using the `@packed` attribute as following:
 ```abs
 @packed(8) struct MyDinner {
-    bool hasFork
-    bool hasSpoon
-    bool hasKnife
-    bool hasPlate
-    u4 hungerLevel
+	bool hasFork
+	bool hasSpoon
+	bool hasKnife
+	bool hasPlate
+	u4 hungerLevel
 }
 ```
 
@@ -33,11 +33,11 @@ Inside the packet, you can include primitives and other structures.
 Packets are used at the same way as structures:
 ```abs
 let MyDinner dinner = MyDinner {
-    hasFork: true,
-    hasSpoon: true,
-    hasKnife: true,
-    hasPlate: false,
-    hungerLevel: 10
+	hasFork: true,
+	hasSpoon: true,
+	hasKnife: true,
+	hasPlate: false,
+	hungerLevel: 10
 }
 ```
 A constructor can also be implemented to make the
@@ -83,17 +83,17 @@ As the data is not alligned, packets needs to be used to represent this table.
 A representation of this table should be:
 ```abs
 ### The range, in bits, are:
-    - tag:      0 .. 8
-    - active:   8
-    - reserved: 32 .. 80
-    - name:     80 .. 120
-    - index:    120 .. 256
+	- tag:	  0 .. 8
+	- active:   8
+	- reserved: 32 .. 80
+	- name:	 80 .. 120
+	- index:	120 .. 256
 ###
 @public @packed struct TablePage {
-    @lay(..8)   Tag tag
-                bool active                     # alignment of 1-bit
-    @off(80)
-                StringBuffer(5) name            # alignment of 8-bit * 5
-                u16 index                       # alignment of 16-bit
+	@lay(..8)   Tag tag
+				bool active					 # alignment of 1-bit
+	@off(80)
+				StringBuffer(5) name			# alignment of 8-bit * 5
+				u16 index					   # alignment of 16-bit
 }
 ```
