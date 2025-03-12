@@ -117,7 +117,7 @@ func main() !void {
 
 func sayMessage(string msg) {
 	Std.Console.writeln(msg)
-    # `msg` is not more used
+	# `msg` is not more used
 	# and becomes out of scope
 	# after here
 }
