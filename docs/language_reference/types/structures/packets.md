@@ -47,13 +47,13 @@ and you can use the dot operator (`.`) to acess it fields:
 ```abs
 import from Std.Console
 
-if (!dinner.hasFork)  writeLn("Comrade doesn't have a fork!");
-if (!dinner.hasSpoon) writeLn("Comrade doesn't have a spoon!");
-if (!dinner.hasKnife) writeLn("Comrade doesn't have a knife!");
-if (!dinner.hasPlate) writeLn("Comrade doesn't have a plate!");
+if (!dinner.hasFork)  writeln("Comrade doesn't have a fork!");
+if (!dinner.hasSpoon) writeln("Comrade doesn't have a spoon!");
+if (!dinner.hasKnife) writeln("Comrade doesn't have a knife!");
+if (!dinner.hasPlate) writeln("Comrade doesn't have a plate!");
 
-if   (!dinner.hungerLevel > 10) writeLn("They're starving!!!!");
-elif (!dinner.hungerLevel > 5)  writeLn("They're hungry!");
+if   (!dinner.hungerLevel > 10) writeln("They're starving!!!!");
+elif (!dinner.hungerLevel > 5)  writeln("They're hungry!");
 ```
 
 ```text title="Console Output"
@@ -92,10 +92,10 @@ A representation of this table should be:
 ###
 @public @packed struct TablePage {
 	@lay(..8)   Tag tag
-				bool active                     # alignment of 1-bits
+	            bool active                     # alignment of 1-bits
 	@off(80)
-				StringBuffer(5) name            # alignment of 8-bits * 5
-				u16 index                       # alignment of 16-bits
+	            StringBuffer(5) name            # alignment of 8-bits * 5
+	            u16 index                       # alignment of 16-bits
 }
 ```
 
@@ -107,10 +107,10 @@ e.g.:
 # No need to count the bits, as we are using bytes!
 
 @public @packed struct TablePage {
-	@lay(..4)   Tag tag
-				bool active                     # alignment of 1-bits
-	@off(10)
-				StringBuffer(5) name            # alignment of 8-bits * 5
-				u16 index                       # alignment of 16-bits
+	@lay(..4 by 8)  Tag tag
+	                bool active                     # alignment of 1-bits
+	@off(10 by 8)
+	                StringBuffer(5) name            # alignment of 8-bits * 5
+	                u16 index                       # alignment of 16-bits
 }
 ```

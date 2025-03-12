@@ -102,13 +102,13 @@ a repetitive or optional value.
 # Different results are named diferently
 
 func void writeText(string value) {
-	Std.Console.writeLn("My string is: " + value)
+	Std.Console.writeln("My string is: " + value)
 }
 func void writeText([]char value) {
-	Std.Console.writeLn("My string is: " + string.join(value))
+	Std.Console.writeln("My string is: " + string.join(value))
 }
 func void writeNumber(i32 value) {
-	Std.Console.writeLn("My number is: " + value)
+	Std.Console.writeln("My number is: " + value)
 }
 ```
 
@@ -117,13 +117,13 @@ func void writeNumber(i32 value) {
 # harder understanding of the code
 
 func void writeText(string value) {
-	Std.Console.writeLn("My string is:" + value)
+	Std.Console.writeln("My string is:" + value)
 }
 func void writeText([]char value) {
-	Std.Console.lowriteLng("My string is:" + string.join(value))
+	Std.Console.writeln("My string is:" + string.join(value))
 }
 func void writeText(i32 value) {
-	Std.Console.writeLn("My number is:" + value)
+	Std.Console.writeln("My number is:" + value)
 }
 ```
 </details>
