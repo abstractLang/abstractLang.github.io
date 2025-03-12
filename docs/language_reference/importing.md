@@ -21,7 +21,7 @@ readability of the code.
 
 simple imports can be done by writing:
 ```abs
-import from <namespace>
+from <namespace> import
 ```
 
 Being `<namespace>` the relative or global reference to a namespace
@@ -29,14 +29,14 @@ that is desired to import.
 
 A example of simple import is:
 ```abs
-import from Std.Console
+from Std.Console import
 ```
 
 Simple imports will allow the code to directly access references of
 the imported namespace is if inside it:
 
 ```abs
-import from Std.Console
+from Std.Console import
 
 namespace MyProgram {
 
@@ -58,7 +58,7 @@ allows to specify what is being imported to the current scope with the
 syntax:
 
 ```abs
-import { <ref...> } from <namespace>
+from <namespace> import { <ref...> }
 ```
 
 Being `<namespace>` the parent of the desired imported content and
@@ -70,7 +70,7 @@ the content of what is being imported inside a reference of the same name.
 
 e. g.:
 ```abs
-import { Console, Memory } from Std
+from Std import { Console, Memory }
 # `Console` and `Memory` is now directly referenceable
 
 namespace MyProgram {
@@ -81,7 +81,7 @@ namespace MyProgram {
 ```
 
 ```abs
-import { write } from Std.Console
+from Std.Console import { write }
 # only the `write` function is being imported
 
 namespace MyProgram {
@@ -104,7 +104,7 @@ To avoid reference conflicts or have control about the imported reference,
 is still possible to renemed it as desired using the keyword `as` as follows:
 
 ```abs
-import { write, writeln as writeLine } from Std.Console
+from Std.Console import { write, writeln as writeLine }
 
 namespace MyProgram {
 
