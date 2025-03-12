@@ -75,7 +75,7 @@ They're used to define the positions and sizes of the next fields inside the str
 
 As instance, let's suppose we have the following structure layout for a page of a table:
 
-| bytes:    | 0..4       | 4             | 4..10           | 10..15        | 15..32      |
+| bytes:    | 0..4       | 4             | 5..10           | 10..15        | 15..32      |
 |:----------|:----------:|:-------------:|:---------------:|:-------------:|:-----------:|
 | **data:** | tag (enum) | active (bool) | reserved (void) | name (5 * u8) | index (u16) |
 
@@ -84,14 +84,14 @@ values that are not 8-bit alligned, packets should be used to represent this tab
 A representation of this table should be:
 ```abs
 ### The range, in bits, are:
-	- tag:      0 .. 8
-	- active:   8
-	- reserved: 32 .. 80
+	- tag:      0 .. 32
+	- active:   32
+	- reserved: 40 .. 80
 	- name:     80 .. 120
 	- index:    120 .. 256
 ###
 @public @packed struct TablePage {
-	@lay(..8)   Tag tag
+	@lay(..32)  Tag tag
 	            bool active                     # alignment of 1-bits
 	@off(80)
 	            StringBuffer(5) name            # alignment of 8-bits * 5
