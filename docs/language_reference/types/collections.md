@@ -18,18 +18,6 @@ built-in data types or structures.
 Array lists are one of the most basic collection type in programming. They are based on the concept of a contiguous
 sequence of data in the memory that can be indexed by its position on the list.
 
-```C title='C'
-// In C and and in most programming languages, this is a example
-// of how the user can create a sequence of integers in the memory.
-int[10] myArray = {0, 3, 6, 9, 12, 15, 18, 21, 24, 27};
-
-// The array syntax allows the user to access the 10 elements of the
-// array using only it position
-printf("%i, ", myArray[3]);
-printf("%i, ", myArray[5]);
-printf("%i ", myArray[7]);
-// out: 9, 15, 21
-```
 
 In abstract, array types are delcared as follows:
 ```
@@ -37,18 +25,20 @@ In abstract, array types are delcared as follows:
 ```
 `[]` being a type modifier, indicating an array list of the following type
 
-| abstract | Equivalent in C | Size in bits     |
-|----------|:---------------:|:----------------:|
-| [i]t     | t[i]            | bitSizeOf(t) * i |
+| abstract | Size in bits     |
+|----------|:----------------:|
+| [i]t     | bitSizeOf(t) * i |
 
 *`t` - Type of elements \
 *`i` - Array list size
 
-ArrayLists are not dynamically allocated in memory. They need to be allocated with a predefined size and cannot be resized
-after creation. 
-The array initialization syntax pre-allocated memory based on the length of the array which is
-mentioned between the array type modifier `[length]`. e.g. the following code will create an array for
-the i32 type with pre-allocated memory to only 5 elements of the i32 type:
+Array lists are not dynamically allocated in memory. They need to be allocated with a predefined size and
+cannot be resized after creation. 
+The array initialization syntax pre-allocate memory based on the length of the array which is
+mentioned between the array type modifier `[length]`, also ensuring that the array assigned to this variable
+will aways be of the explicited size. \
+e.g. the following code will create an array for the `i32` type with pre-allocated memory to only 5 elements of
+the `i32` type:
 ```abs
 let [5]i32 myArray
 ```
@@ -61,13 +51,18 @@ let []AnyType = [values..]
 ```
 
 If the developer want to specify an array length but define only some of the elements, then
-both the syntaxes can be mixed.
+both the syntaxes can be mixed, using some special syntax features to specify the indexes where
+the elements will ble aplyed:
+```abs
+[..5, 10, 20, 30] # 10, 20 & 30 will be placed starting at the index 5
+[10, 20, 30, 3..] # 10, 20 & 30 will be placed 3 elements before the end of the array  
+```
 
 Some ways of declaring an array in Abstract are:
 ```abs
 let [10]i32 myArray
 const []string fruits = ["orange", "mango", "strawberry", "tomato"]
-const [20]i8 myBytes = [255, 254, 253]
+const [20]i8 myBytes = [255, 254, 253 ..]
 ```
 
 ### The Index Operator
