@@ -86,7 +86,7 @@ else
 ```
 
 if more than a statement needs to be executed in case of a condition, it's possible to
-open a conde block with brackets (`{...}`).
+open a conde block with brackets (`{ ... }`).
 
 ```abs
 let i32 value

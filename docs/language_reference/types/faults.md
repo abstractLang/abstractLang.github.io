@@ -24,8 +24,8 @@ data about where the error happened, what happened and aditional data do debug
 the error as the programmer needs.
 
 ```abs
-func !void tryToDoSomething()
-func !u32 tryToReturnSomething()
+func tryToDoSomething() !void { ... }
+func tryToReturnSomething() !u32 { ... }
 ```
 
 The `tryToDoSomething` and `tryToReturnSomething` functions are being typed as `!void` and
@@ -118,18 +118,17 @@ To make life easier, the compiler allows a type to be automatically weapped by
 using tha bang character (`!`) before the desired to wrap type:
 
 ```abs
-func !void foo()        # A failable function that returns nothing
-func !i32 foo()         # A failable function that returns a integer
-func !float foo()       # A failable function that returns a floating
-func !?bool foo()       # A failable function that returns a nullable boolean
-func ![]string foo()    # A failable function that returns a array of strings
+func foo() !void        # A failable function that returns nothing
+func foo() !i32         # A failable function that returns a integer
+func foo() !f32         # A failable function that returns a floating
+func foo() !?bool       # A failable function that returns a nullable boolean
+func foo() ![]string    # A failable function that returns a array of strings
 ```
 
 Inside this function, we create a condition to verify the error as follows:
 
 ```abs
-func !f32 safeDivide(f32 numerator, f32 denominator)
-{
+func safeDivide(f32 numerator, f32 denominator) !f32 {
 	if (denominator == 0) {
 		# Raise a fault here!
 	}
@@ -150,31 +149,14 @@ finish the name aways with `Fault`.
 :::
 
 ```abs
-func !f32 safeDivide(f32 numerator, f32 denominator)
-{
+func safeDivide(f32 numerator, f32 denominator) !f32 {
 	if (denominator == 0) {
 		# Use the `new` operator to create a
 		# fresh instance
-		throw new DenominatorCannotBeZeroFault()
+		throw fault.DenominatorCannotBeZero()
 	}
 
 	return numerator / denominator
 }
 ```
 
-In reality, the fault object is a tuple, so we can add some arguments
-on it. \
-Keep in mind that you cannot have faults with the same name and
-different parameter types in the same scope!
-
-```abs
-func !f32 safeDivide(f32 numerator, f32 denominator)
-{
-	if (denominator == 0) {
-		throw new DenominatorCannotBeZeroFault(
-			"Denominator value cannot be 0!", numerator, denominator)
-	}
-
-	return numerator / denominator
-}
-```

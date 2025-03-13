@@ -10,6 +10,11 @@ Data collection is an extremely important component of a program for easy and ef
 In abstract, some data collections are Arrays, Linked Lists, Queues, Stacks and Dictionaries, all of these are
 built-in data types or structures.
 
+:::info
+Keep in mind that different collection structures will have it own pros an cons.
+Examine with attention each one to understand exactly what is better for your needs.
+:::
+
 ---
 ## Arrays
 :::warning[Not Implemented!]
@@ -52,10 +57,11 @@ let []AnyType = [values..]
 
 If the developer want to specify an array length but define only some of the elements, then
 both the syntaxes can be mixed, using some special syntax features to specify the indexes where
-the elements will ble aplyed:
+the elements will be aplyed:
 ```abs
 [..5, 10, 20, 30] # 10, 20 & 30 will be placed starting at the index 5
-[10, 20, 30, 3..] # 10, 20 & 30 will be placed 3 elements before the end of the array  
+[10, 20, 30, 3..] # 10, 20 & 30 will be placed 3 elements before the end of the array
+[10, 20, ..8, 30] # 10 & 20 will be placed at the start and 30 will be placed at index 8
 ```
 
 Some ways of declaring an array in Abstract are:
@@ -86,6 +92,47 @@ myIndex = 4
 Std.Console.log(myArray[myIndex]) # out: 50
 ```
 
+---
+## Dynamic Arrays
+:::warning[Not Implemented!]
+:::
+
+Dynamic arrays are wrappers around built-in arrays that allow them to be resized
+during runtime. Dynamic arrays will require an allocator to work as they lies
+entirelly on the heap.
+
+```abs
+from Std.Console import
+from Std.Types.Collections import { DynamicArray }
+
+func main() !void {
+    const byteList = new DynamicArray(i8)()
+
+    # Elements can be added to the list with
+    # no worries as it will dinamically allocate
+    # memory when needed.
+    byteList.Add(10)
+    byteList.Add(20)
+    byteList.Add(30)
+    byteList.Add(40)
+
+    # Elements can also be removed from the list
+    byteList.RemoveAt(2)
+
+    for i in byteList => writeln(i)
+}
+```
+```text title="Console Output"
+10
+20
+40
+```
+
+:::warning[Pros and cons]
+The dynamic array is optimized for **reading before resizing**. It means that it use should be prioritized
+for cases where the data need to be fastly reed but the same speed is not needed to manipulate the
+elements.
+:::
 
 ---
 ## Linked Lists

@@ -107,9 +107,9 @@ e.g.:
 # No need to count the bits, as we are using bytes!
 
 @public @packed struct TablePage {
-	@lay(..4 by 8)  Tag tag
+	@lay(..4:8)     Tag tag
 	                bool active                     # alignment of 1-bits
-	@off(10 by 8)
+	@off(10 * 8)
 	                StringBuffer(5) name            # alignment of 8-bits * 5
 	                u16 index                       # alignment of 16-bits
 }

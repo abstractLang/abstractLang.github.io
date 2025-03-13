@@ -9,7 +9,7 @@ sidebar_position: 5
 :::warning[Not Implemented!]
 :::
 
-While loops
+## While loops
 ```abs
 let index = 0
 
@@ -21,15 +21,17 @@ while index >= 0 => {
 }
 ```
 
-For loops
+---
+## For loops
+
 ```abs
 from Std.Console import
 
 # Looping from 0 to 49
-for i in 50 => writeln(i)
+for i in ..50 => writeln(i)
 
 # Looping from 0 to 50 in steps of 10
-for i: []byte in ..50 by 10 => writeln(i)
+for i in ..50:10 => writeln(i)
 
 # Looping though each element of a array
 let []byte numbers = [22, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43]
@@ -37,5 +39,4 @@ for v in numbers => {
     write("Example of a prime number:")
     writeln(v)
 }
-
 ```
