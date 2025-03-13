@@ -117,9 +117,62 @@ func main() !void {
 
 func sayMessage(string msg) {
 	Std.Console.writeln(msg)
-    # `msg` is not more used
+	# `msg` is not more used
 	# and becomes out of scope
 	# after here
+}
+```
+
+# The Static Garbage Collector
+
+However, abstract can ease the duty of cleaning up objects every single time it lifetime ends.
+
+The language included a feature called The Static Garbage Collector, a garbage collector that acts in compile time and is developed to carefully 8nspect, select and delete references when their lifetime ends. Take the following example:
+
+```abs
+func main() !void {
+	const message1 = "Hello, World!"
+	sayMessage(message1)
+	# `message1` is not used anymore
+	let message2 = "Today is a good day."
+	sayMessage(message2)
+	# `message2` current value is lost here
+	message2 = "How are you going?"
+	sayMessage(message2)
+	# `message2` is out of scope
+}
+
+func sayMessage(string msg) {
+	Std.Console.writeln(msg)
+	# `msg` is out of scope
+}
+```
+
+Even without any destructor calls, this code can finely be compiled and executed without any leaks, thanks to the static GC.
+
+
+```abs title="Static GC post-processed code
+func main() !void {
+	const message1 = "Hello, World!"
+	sayMessage(message1)
+	# `message1` is not used anymore
+	delete message1 # by static GC
+	let message2 = "Today is a good day."
+	sayMessage(message2)
+	# `message2` current value is lost here
+	delete message2 # by static GC
+	message2 = "How are you going?"
+	sayMessage(message2)
+	# `message2` is out of scope
+	delete message2 # by static GC
+}
+
+func sayMessage(string msg) {
+	Std.Console.writeln(msg)
+	# `msg` is out of scope
+ # Static GC does nothing here,
+ # as `msg` is not owned by this
+ # scope.
 }
 ```
 
