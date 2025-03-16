@@ -49,9 +49,9 @@ func ?i32 foo() { ... }
 
 let ?i32 myNumber = foo()
 if (myNumber) {
-    # Inside the if scope, `myNumber` is shadowed
-    # to unwrap the value
-    let i32 value = myNumber
+	# Inside the if scope, `myNumber` is shadowed
+	# to unwrap the value
+	let i32 value = myNumber
 }
 
 # Compilation Error! `?i32` is not assignable to `i32`

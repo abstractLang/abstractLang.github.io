@@ -18,9 +18,9 @@ of primitives, privatize certain variables in closed scopes, abstract the manage
 A example of a structure being declarated and used in Abstract is:
 ```abss are lost or get out of scope, the best practice is aways request the data destruction to make sure that any heap-allocated data from it is well deallocated:
 struct Biography {
-    @public let u8 myAge
-    @public let string myName
-    @public let string myGithub
+	@public let u8 myAge
+	@public let string myName
+	@public let string myGithub
 }
 
 # this is creating a new variable of type Biography!
@@ -43,11 +43,11 @@ Sometimes, is usefull to have a single function to abstract complex initializati
 for instance, take the following structure declaration example:
 ```abs
 struct Biography {
-    @public let string name
-    @public let string github
+	@public let string name
+	@public let string github
 
-    @public let u8 birthYear
-    @public let u8 age
+	@public let u8 birthYear
+	@public let u8 age
 }
 ```
 
@@ -69,20 +69,20 @@ variables and run code as any function can do.
 A constructor can be declarated as follows:
 ```abs
 struct Biography {
-    ...
-    constructor() {
-        # This will run when the structure is instantiated!
-    }
+	...
+	constructor() {
+		# This will run when the structure is instantiated!
+	}
 }
 ```
 
 As it need some input data, the constructor will ask for some arguments:
 ```abs
 struct Biography {
-    ...
-    constructor(string name, string gh, u8 age) {
-        # This will run when the structure is instantiated!
-    }
+	...
+	constructor(string name, string gh, u8 age) {
+		# This will run when the structure is instantiated!
+	}
 }
 ```
 
@@ -95,16 +95,16 @@ declarated constructors (it includes empty constructors).
 after that, we can process the data how we want:
 ```abs
 struct Biography {
-    ...
-    constructor(string name, string gh, string age) {
-        # `this` is used to get the current instance.
-        # it should be used in case of naming conflict.
-        # Oterwise, it's unecessary.
-        this.name = name;
-        github = gh;
-        this.age = age;
-        birthday = 2024 - age;
-    }
+	...
+	constructor(string name, string gh, string age) {
+		# `this` is used to get the current instance.
+		# it should be used in case of naming conflict.
+		# Oterwise, it's unecessary.
+		this.name = name;
+		github = gh;
+		this.age = age;
+		birthday = 2024 - age;
+	}
 }
 ```
 

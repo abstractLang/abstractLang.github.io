@@ -14,11 +14,11 @@ have full controll of the layout of all the bits stored on it.
 Packets can be implemented as structs, using the `@packed` attribute as following:
 ```abs
 @packed(8) struct MyDinner {
-    bool hasFork
-    bool hasSpoon
-    bool hasKnife
-    bool hasPlate
-    u4 hungerLevel
+	bool hasFork
+	bool hasSpoon
+	bool hasKnife
+	bool hasPlate
+	u4 hungerLevel
 }
 ```
 
@@ -29,11 +29,11 @@ Inside the packet, you can include primitives and other structures.
 Packets are used at the same way as structures:
 ```abs
 let MyDinner dinner = MyDinner {
-    hasFork: true,
-    hasSpoon: true,
-    hasKnife: true,
-    hasPlate: false,
-    hungerLevel: 10
+	hasFork: true,
+	hasSpoon: true,
+	hasKnife: true,
+	hasPlate: false,
+	hungerLevel: 10
 }
 ```
 A constructor can also be implemented to make the
@@ -43,13 +43,13 @@ and you can use the dot operator (`.`) to acess it fields:
 ```abs
 import from Std.Console
 
-if (!dinner.hasFork)  writeLn("Comrade doesn't have a fork!");
-if (!dinner.hasSpoon) writeLn("Comrade doesn't have a spoon!");
-if (!dinner.hasKnife) writeLn("Comrade doesn't have a knife!");
-if (!dinner.hasPlate) writeLn("Comrade doesn't have a plate!");
+if (!dinner.hasFork)  writeln("Comrade doesn't have a fork!");
+if (!dinner.hasSpoon) writeln("Comrade doesn't have a spoon!");
+if (!dinner.hasKnife) writeln("Comrade doesn't have a knife!");
+if (!dinner.hasPlate) writeln("Comrade doesn't have a plate!");
 
-if   (!dinner.hungerLevel > 10) writeLn("They're starving!!!!");
-elif (!dinner.hungerLevel > 5)  writeLn("They're hungry!");
+if   (!dinner.hungerLevel > 10) writeln("They're starving!!!!");
+elif (!dinner.hungerLevel > 5)  writeln("They're hungry!");
 ```
 
 ```text title="Console Output"
@@ -71,7 +71,7 @@ They're used to define the positions and sizes of the next fields inside the str
 
 As instance, let's suppose we have the following structure layout for a page of a table:
 
-| bytes:    | 0..4       | 4             | 4..10           | 10..15        | 15..32      |
+| bytes:    | 0..4       | 4             | 5..10           | 10..15        | 15..32      |
 |:----------|:----------:|:-------------:|:---------------:|:-------------:|:-----------:|
 | **data:** | tag (enum) | active (bool) | reserved (void) | name (5 * u8) | index (u16) |
 
@@ -80,18 +80,18 @@ values that are not 8-bit alligned, packets should be used to represent this tab
 A representation of this table should be:
 ```abs
 ### The range, in bits, are:
-    - tag:      0 .. 64
-    - active:   64
-    - reserved: 64 .. 80
-    - name:     80 .. 120
-    - index:    120 .. 256
+	- tag:      0 .. 32
+	- active:   32
+	- reserved: 40 .. 80
+	- name:     80 .. 120
+	- index:    120 .. 256
 ###
 @public @packed struct TablePage {
-    @lay(..8)   Tag tag
-                bool active                     # alignment of 1-bits
-    @off(80)
-                StringBuffer(5) name            # alignment of 8-bits * 5
-                u16 index                       # alignment of 16-bits
+	@lay(..32)  Tag tag
+	            bool active                     # alignment of 1-bits
+	@off(80)
+	            StringBuffer(5) name            # alignment of 8-bits * 5
+	            u16 index                       # alignment of 16-bits
 }
 ```
 
@@ -103,10 +103,10 @@ e.g.:
 # No need to count the bits, as we are using bytes!
 
 @public @packed struct TablePage {
-    @lay(..4)   Tag tag
-                bool active                     # alignment of 1-bits
-    @off(10)
-                StringBuffer(5) name            # alignment of 8-bits * 5
-                u16 index                       # alignment of 16-bits
+	@lay(..4:8)     Tag tag
+	                bool active                     # alignment of 1-bits
+	@off(10 * 8)
+	                StringBuffer(5) name            # alignment of 8-bits * 5
+	                u16 index                       # alignment of 16-bits
 }
 ```

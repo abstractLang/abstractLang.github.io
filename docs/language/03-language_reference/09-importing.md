@@ -20,7 +20,7 @@ readability of the code.
 
 simple imports can be done by writing:
 ```abs
-import from <namespace>
+from <namespace> import
 ```
 
 Being `<namespace>` the relative or global reference to a namespace
@@ -28,22 +28,22 @@ that is desired to import.
 
 A example of simple import is:
 ```abs
-import from Std.Console
+from Std.Console import
 ```
 
 Simple imports will allow the code to directly access references of
 the imported namespace is if inside it:
 
 ```abs
-import from Std.Console
+from Std.Console import
 
 namespace MyProgram {
 
-    func !void main() {
-        # `writeln` is not a member of the `MyProgram` namespace,
-        # in reality it is being imported from `Std.Console`!
-        writeln("Hello, World!")
-    }
+	func !void main() {
+		# `writeln` is not a member of the `MyProgram` namespace,
+		# in reality it is being imported from `Std.Console`!
+		writeln("Hello, World!")
+	}
 
 }
 ```
@@ -57,7 +57,7 @@ allows to specify what is being imported to the current scope with the
 syntax:
 
 ```abs
-import { <ref...> } from <namespace>
+from <namespace> import { <ref...> }
 ```
 
 Being `<namespace>` the parent of the desired imported content and
@@ -69,28 +69,28 @@ the content of what is being imported inside a reference of the same name.
 
 e. g.:
 ```abs
-import { Console, Memory } from Std
+from Std import { Console, Memory }
 # `Console` and `Memory` is now directly referenceable
 
 namespace MyProgram {
-    func !void main() {       
-        Console.writeln("Hello, World!")
-    }
+	func !void main() {	   
+		Console.writeln("Hello, World!")
+	}
 }
 ```
 
 ```abs
-import { write } from Std.Console
+from Std.Console import { write }
 # only the `write` function is being imported
 
 namespace MyProgram {
 
-    func !void main() {       
-        write("Hello, World, ")
-        # Other references still need to be refered
-        # from the root!
-        Std.Console.writeln("I'm importing references!")
-    }
+	func !void main() {	   
+		write("Hello, World, ")
+		# Other references still need to be refered
+		# from the root!
+		Std.Console.writeln("I'm importing references!")
+	}
 
 }
 ```
@@ -103,16 +103,16 @@ To avoid reference conflicts or have control about the imported reference,
 is still possible to renemed it as desired using the keyword `as` as follows:
 
 ```abs
-import { write, writeln as writeLine } from Std.Console
+from Std.Console import { write, writeln as writeLine }
 
 namespace MyProgram {
 
-    func !void main() {       
-        write("Hello, World, ")
-        # Instead of refering as `writeln`, the function is
-        # refered as `writeLine`!
-        writeLine("I'm importing references!")
-    }
+	func !void main() {	   
+		write("Hello, World, ")
+		# Instead of refering as `writeln`, the function is
+		# refered as `writeLine`!
+		writeLine("I'm importing references!")
+	}
 
 }
 ```

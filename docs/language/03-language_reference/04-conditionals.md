@@ -28,7 +28,7 @@ after the condition.
 let bool sayHello = false
 
 if sayHello
-    Std.Console.writeln("Hello, World!")
+	Std.Console.writeln("Hello, World!")
 # This statement is outside the condition!
 Std.Console.writeln("Goodbie, World!")
 ```
@@ -51,38 +51,38 @@ let i32 value = 10
 # First condition evaluated.
 # as 10 != 0, it will fall to the next elif
 if value == 0
-    Std.Console.writeln("value is exactly 0!")
+	Std.Console.writeln("value is exactly 0!")
 
 # as 10 != 1, it will fall to the next elif
 elif value == 1
-    Std.Console.writeln("value is exactly 1!")
+	Std.Console.writeln("value is exactly 1!")
 
 # as 10 > 5, it will fall to the next elif
 elif value < 5
-    Std.Console.writeln("Value is lower than 5 but greater than 1!")
+	Std.Console.writeln("Value is lower than 5 but greater than 1!")
 
 # as 10 == 10, the next statement will be processed
 elif value >= 10
-    Std.Console.writeln("Value is equal or greater than 10!")
+	Std.Console.writeln("Value is equal or greater than 10!")
 
 # It's impossible to a number to be greater than 11
 # and not be greater than 10. This condition is unreachable.
 elif value > 11
-    Std.Console.writeln("Value is greater than 11!")
+	Std.Console.writeln("Value is greater than 11!")
 
 # A new if keyword will start a new cascade
 if value == 11
-    Std.Console.writeln("Value is exactly 11!")
+	Std.Console.writeln("Value is exactly 11!")
 
 # If all conditions in the cascade evaluate to false
 # the else statement will aways be processed
 else
-    Std.Console.writeln("Value is not 11")
+	Std.Console.writeln("Value is not 11")
 
 ```
 
 if more than a statement needs to be executed in case of a condition, it's possible to
-open a conde block with brackets (`{...}`).
+open a conde block with brackets (`{ ... }`).
 
 ```abs
 let i32 value
@@ -92,11 +92,11 @@ let i32 value
 if (value > 30) Std.Console.writeln("Value is greater than 30!")
 elif (value < 30) Std.Console.writeln("Value is lesser than 30!")
 else {
-    # Here, this entire code block will be executed in case of the
-    # value be exactly 30.
-    Std.Console.writeln("Certainly,")
-    Std.Console.writeln("the value is")
-    Std.Console.writeln("exactly 30!")
+	# Here, this entire code block will be executed in case of the
+	# value be exactly 30.
+	Std.Console.writeln("Certainly,")
+	Std.Console.writeln("the value is")
+	Std.Console.writeln("exactly 30!")
 }
 
 ```
@@ -118,21 +118,21 @@ let i32 value
 # ...
 
 match value {
-     10 => Std.Console.writeln("value is 10!"),
-     20 => Std.Console.writeln("value is 20!"),
-     30 => Std.Console.writeln("value is 30!"),
+	 10 => Std.Console.writeln("value is 10!"),
+	 20 => Std.Console.writeln("value is 20!"),
+	 30 => Std.Console.writeln("value is 30!"),
 
-     _ => Std.Console.writeln("Value is neither 10, 20 or 30!")
+	 _ => Std.Console.writeln("Value is neither 10, 20 or 30!")
 }
 
 # Match blocks can return values too!
 let i32 by2 = match value {
-    10 => 5,
-    20 => 10,
-    30 => 15,
-    40 => 20,
+	10 => 5,
+	20 => 10,
+	30 => 15,
+	40 => 20,
 
-    _ => value / 2
+	_ => value / 2
 }
 
 ```
@@ -155,18 +155,18 @@ let i32 manaPoints = 3
 # arow operator is after the case statement!
 
 switch lifePoints {
-    case 10 => Std.Console.write("2x") =>
-    case 9 => Std.Console.write("#") =>
-    case 8 => Std.Console.write("#") =>
-    case 7 => Std.Console.write("#") =>
-    case 6 => Std.Console.write("#") =>
-    case 5 => Std.Console.write("#") =>
-    case 4 => Std.Console.write("#") =>
-    case 3 => Std.Console.write("#") =>
-    case 2 => Std.Console.write("#") =>
-    case 1 => Std.Console.write("#") =>
+	case 10 => Std.Console.write("2x") =>
+	case 9 => Std.Console.write("#") =>
+	case 8 => Std.Console.write("#") =>
+	case 7 => Std.Console.write("#") =>
+	case 6 => Std.Console.write("#") =>
+	case 5 => Std.Console.write("#") =>
+	case 4 => Std.Console.write("#") =>
+	case 3 => Std.Console.write("#") =>
+	case 2 => Std.Console.write("#") =>
+	case 1 => Std.Console.write("#") =>
 
-    default => Std.Console.write(" - life points")
+	default => Std.Console.write(" - life points")
 }
 
 # Without the arow operator, the process will not
@@ -174,10 +174,10 @@ switch lifePoints {
 # break!
 
 switch manaPoints {
-    case > 10 => Std.Console.write("Mana bonus! ") =>
-    case < 10 and > 0 => Std.Console.writeln(manaPoints + " - mana points") # breaks here!
+	case > 10 => Std.Console.write("Mana bonus! ") =>
+	case < 10 and > 0 => Std.Console.writeln(manaPoints + " - mana points") # breaks here!
 
-    case 0 => Std.Console.writeln("No mana!")
+	case 0 => Std.Console.writeln("No mana!")
 }
 
 ```

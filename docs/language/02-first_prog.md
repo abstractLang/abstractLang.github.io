@@ -36,10 +36,9 @@ Inside the script file, write the following code:
 from Std.Console import
 
 func main() !void {
-    writeln("Hello, World!")
-    writeln("I'm coding in abstract!")
+	writeln("Hello, World!")
+	writeln("I'm coding in abstract!")
 }
-
 ```
 
 ---
@@ -55,7 +54,7 @@ Using the command line, you can invoke the following command to run the
 project in the current workspace:
 
 ```shell title="Command Line"
-abs run
+abs build run
 ```
 
 ### Running With a Build Automatization Script
@@ -80,5 +79,4 @@ abs init
 TODO
 
 ---
-
 

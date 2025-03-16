@@ -23,10 +23,10 @@ from Std.System.Assembly.x86_64Assembly import {
 func foo()
 {
 
-    let string message = "Hello, World!";
+	let string message = "Hello, World!";
 
-    opcode.MOV(.RDI, refas.memptr(message))
-    opcode.CALL(refas.memptr(writeln))
+	opcode.MOV(.RDI, refas.memptr(message))
+	opcode.CALL(refas.memptr(writeln))
 
 }
 
