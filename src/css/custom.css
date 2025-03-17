@@ -53,3 +53,11 @@
 .token.string.interpolation.plain {
   color: white;
 }
+
+
+.bytecode-bitfields > thead { width: 100% !important; }
+.bytecode-bitfields > tbody { width: 100% !important; }
+
+.bytecode-bitfields > tbody > tr { border: var(--ifm-table-border-width) solid var(--ifm-table-border-color); }
+.bytecode-bitfields > tbody > tr > td:not(:nth-last-child(1)):not(:nth-last-child(2)) { border: none; }
+.bytecode-bitfields > tbody > tr > td.rb { border-right: var(--ifm-table-border-width) solid var(--ifm-table-border-color) !important; }

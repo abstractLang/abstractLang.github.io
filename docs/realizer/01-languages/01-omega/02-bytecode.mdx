@@ -1,0 +1,31 @@
+# Bytecode
+
+# Bit Organization table
+
+<table className={"bytecode-bitfields"}>
+
+<thead>
+    <tr>
+        <td colSpan={8}><b>Bits</b></td>
+        <td colSpan={1}><b>Bytecode</b></td>
+        <td colSpan={1}><b>Instruction</b></td>
+    </tr>
+</thead>
+
+<tbody>
+    <tr> <td rowSpan={8}> 0 </td> <td rowSpan={8}> 0 </td> <td rowSpan={8} className="rb"> 0 </td>
+                <td> 0 </td><td> 0 </td><td> 0 </td><td> 0 </td><td> 0 </td>   <td> 0x00 </td> <td> nop </td> </tr>
+    <tr>        <td> 0 </td><td> 0 </td><td> 0 </td><td> 0 </td><td> 1 </td>   <td> 0x01 </td> <td> invalid </td> </tr>
+    <tr>        <td> 0 </td><td> 0 </td><td> 0 </td><td> 1 </td><td> 0 </td>   <td> 0x02 </td> <td> pop </td> </tr>
+    <tr>        <td> 0 </td><td> 0 </td><td> 0 </td><td> 1 </td><td> 1 </td>   <td> 0x03 </td> <td> dup </td> </tr>
+    <tr>        <td> 0 </td><td> 0 </td><td> 1 </td><td> 0 </td><td> 0 </td>   <td> 0x04 </td> <td> swap </td> </tr>
+    <tr>        <td> 0 </td><td> 0 </td><td> 1 </td><td> 0 </td><td> 1 </td>   <td> 0x05 </td> <td> ret </td> </tr>
+    <tr>        <td> 0 </td><td> 0 </td><td> 1 </td><td> 1 </td><td> 0 </td>   <td> 0x06 </td> <td> throw </td> </tr>
+    <tr>        <td> 0 </td><td> 0 </td><td> 1 </td><td> 1 </td><td> 1 </td>   <td> 0x07 </td> <td> break </td> </tr>
+
+    <tr> <td rowSpan={8}> 1 </td> <td rowSpan={8}> 0 </td> <td rowSpan={8} className="rb"> 0 </td>
+                <td rowSpan={8} className="rb"> 0 </td>
+                        <td> 0 </td><td> 0 </td><td> 0 </td><td> 0 </td>   <td> 0x80 </td> <td> ld.const null </td> </tr>
+</tbody>
+
+</table>
