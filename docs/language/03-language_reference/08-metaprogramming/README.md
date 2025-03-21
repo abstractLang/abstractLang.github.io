@@ -1,6 +1,6 @@
 # Metaprogramming
 
-:::info[Under Construction]
+:::under-construction
 :::
 
 Metaprogramming is the process of writing code that can create, modify,

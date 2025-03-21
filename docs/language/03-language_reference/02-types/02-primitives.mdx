@@ -1,5 +1,5 @@
 # Other Primitive Types
-:::info[Under Construction]
+:::under-construction
 :::
 
 Abstract also has some other primitive types that aren't just numbers.
@@ -8,7 +8,7 @@ numerical values or create type encapsulation.
 
 ---
 ## Booleans
-:::warning[Not Implemented!]
+:::not-implemented
 :::
 
 Booleans are types that can only represent the binary values `true` or `false`.
@@ -32,6 +32,11 @@ The cake is a lie!
 ---
 ## Strings
 
+:::info[Note]
+Strings are, thechnically, not primitive types, but the language uses this concept
+abstraction to make things easy to understand.
+:::
+
 A string is a data structure that is able to store text data. A string can be
 used to store and reproduce text characters easily. \
 In Abstract, every string is encoded in UTF-8, with characters varying from 1-4
@@ -41,12 +46,13 @@ bytes in length.
 |--------|:-----------------------------------------------:|:----------------------:|
 | string | variable (content is heap/statically-allocated) | [Std.Types.String](#)  |
 
+
 ```abs
 let string mySpeek = "Hello, World!"
-Std.Console.log(mySpeek)
+Std.Console.writeln(mySpeek)
 
 mySpeek = "Goodbie, World!"
-Std.Console.log(mySpeek)
+Std.Console.writeln(mySpeek)
 ```
 ```text title="Console Output"
 Hello, World!
@@ -55,7 +61,7 @@ Goodbie, World!
 
 ---
 ## Chars
-:::warning[Not Implemented!]
+:::not-implemented
 :::
 
 Chars are data structures made to hold a single text character. Chars value can
@@ -71,8 +77,8 @@ The Char struct cannot store that characters and instead need to be used with an
 Char value.
 :::
 
-Chars will also be castable from/to integers lower than 32 bits e.g. `u8`, `i7`
-or `u32`.
+Chars are be castable from integers lower than 32 bits e.g. `u8`, `i7` or `u32`
+and castable to any integer.
 
 | Alias  | Size     | Implementation            |
 |--------|:--------:|:-------------------------:|
@@ -91,7 +97,7 @@ Std.Console.writeln(myChar as byte) # '87'
 
 ---
 ## Void
-:::warning[Not Implemented!]
+:::not-implemented
 :::
 
 Void is not a concrete type and it is used to indicate that a value is not returned.
@@ -101,7 +107,7 @@ void
 
 ---
 ## NoReturn
-:::warning[Not Implemented!]
+:::not-implemented
 :::
 
 NoReturn is not a concrete type and it is used to indicate that a function do not returns.

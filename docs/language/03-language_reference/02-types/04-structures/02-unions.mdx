@@ -1,0 +1,45 @@
+# Unions
+:::under-construction
+:::
+
+Unions are usefull data structures that stores each one of it fields in the same
+memory space. It can be used to diferent purposes, such as storing diferent types
+in the same space or reading the same bits as another type.
+
+---
+## Unions
+
+:::not-implemented
+:::
+
+You can declarate an union at the following way:
+```abs
+@union struct ContactMethod {
+	PhoneNumber phone
+	InstagramUser instagram
+	TikTokUser tiktok
+}
+```
+
+
+
+---
+## Tagged Unions
+
+:::not-implemented
+:::
+
+---
+## Free Unions
+
+:::not-implemented
+:::
+
+```abs
+@freeUnion struct Name {
+	[8]u8 nameBytes
+	u64 nameLong
+}
+```
+
+

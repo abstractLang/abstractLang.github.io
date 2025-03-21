@@ -1,5 +1,0 @@
-# Namespaces
-
-:::info[Under Construction]
-:::
-

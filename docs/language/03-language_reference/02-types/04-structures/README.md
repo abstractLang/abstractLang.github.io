@@ -1,5 +1,5 @@
 # Data Structures
-:::info[Under Construction]
+:::under-construction
 :::
 
 Data structures, also known as complex data types, are type abstractions
@@ -110,7 +110,7 @@ struct Biography {
 
 ---
 ### Static Functions and Methods
-:::warning[Not Implemented!]
+:::not-implemented
 :::
 
 // TODO
