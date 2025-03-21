@@ -2,6 +2,6 @@
 displayed_sidebar: realizerSidebar
 ---
 
-# AbstractRealizer
+# Abstract Realizer
 
 // TODO

@@ -13,19 +13,125 @@
 </thead>
 
 <tbody>
-    <tr> <td rowSpan={8}> 0 </td> <td rowSpan={8}> 0 </td> <td rowSpan={8} className="rb"> 0 </td>
-                <td> 0 </td><td> 0 </td><td> 0 </td><td> 0 </td><td> 0 </td>   <td> 0x00 </td> <td> nop </td> </tr>
-    <tr>        <td> 0 </td><td> 0 </td><td> 0 </td><td> 0 </td><td> 1 </td>   <td> 0x01 </td> <td> invalid </td> </tr>
-    <tr>        <td> 0 </td><td> 0 </td><td> 0 </td><td> 1 </td><td> 0 </td>   <td> 0x02 </td> <td> pop </td> </tr>
-    <tr>        <td> 0 </td><td> 0 </td><td> 0 </td><td> 1 </td><td> 1 </td>   <td> 0x03 </td> <td> dup </td> </tr>
-    <tr>        <td> 0 </td><td> 0 </td><td> 1 </td><td> 0 </td><td> 0 </td>   <td> 0x04 </td> <td> swap </td> </tr>
-    <tr>        <td> 0 </td><td> 0 </td><td> 1 </td><td> 0 </td><td> 1 </td>   <td> 0x05 </td> <td> ret </td> </tr>
-    <tr>        <td> 0 </td><td> 0 </td><td> 1 </td><td> 1 </td><td> 0 </td>   <td> 0x06 </td> <td> throw </td> </tr>
-    <tr>        <td> 0 </td><td> 0 </td><td> 1 </td><td> 1 </td><td> 1 </td>   <td> 0x07 </td> <td> break </td> </tr>
+    <tr> <td rowSpan={20}> 0 </td> <td rowSpan={20} className="rb"> 0 </td>
+                <td> 0 </td><td> 0 </td><td> 0 </td><td> 0 </td><td> 0 </td><td> 0 </td>   <td> 0x00 </td> <td> nop </td> </tr>
+    <tr>        <td> 0 </td><td> 0 </td><td> 0 </td><td> 0 </td><td> 0 </td><td> 1 </td>   <td> 0x01 </td> <td> invalid </td> </tr>
+    <tr>        <td> 0 </td><td> 0 </td><td> 0 </td><td> 0 </td><td> 1 </td><td> 0 </td>   <td> 0x02 </td> <td> pop </td> </tr>
+    <tr>        <td> 0 </td><td> 0 </td><td> 0 </td><td> 0 </td><td> 1 </td><td> 1 </td>   <td> 0x03 </td> <td> dup </td> </tr>
+    <tr>        <td> 0 </td><td> 0 </td><td> 0 </td><td> 1 </td><td> 0 </td><td> 0 </td>   <td> 0x04 </td> <td> swap </td> </tr>
 
-    <tr> <td rowSpan={8}> 1 </td> <td rowSpan={8}> 0 </td> <td rowSpan={8} className="rb"> 0 </td>
-                <td rowSpan={8} className="rb"> 0 </td>
-                        <td> 0 </td><td> 0 </td><td> 0 </td><td> 0 </td>   <td> 0x80 </td> <td> ld.const null </td> </tr>
+    <tr>        <td> 0 </td><td> 0 </td><td> 0 </td><td> 1 </td><td> 0 </td><td> 1 </td>   <td> 0x05 </td> <td> add </td> </tr>
+    <tr>        <td> 0 </td><td> 0 </td><td> 0 </td><td> 1 </td><td> 1 </td><td> 0 </td>   <td> 0x06 </td> <td> sub </td> </tr>
+    <tr>        <td> 0 </td><td> 0 </td><td> 0 </td><td> 1 </td><td> 1 </td><td> 1 </td>   <td> 0x07 </td> <td> mul </td> </tr>
+    <tr>        <td> 0 </td><td> 0 </td><td> 1 </td><td> 0 </td><td> 0 </td><td> 0 </td>   <td> 0x08 </td> <td> div </td> </tr>
+    <tr>        <td> 0 </td><td> 0 </td><td> 1 </td><td> 0 </td><td> 0 </td><td> 1 </td>   <td> 0x09 </td> <td> rem </td> </tr>
+    <tr>        <td> 0 </td><td> 0 </td><td> 1 </td><td> 0 </td><td> 1 </td><td> 0 </td>   <td> 0x0A </td> <td> neg </td> </tr>
+
+    <tr>        <td> 0 </td><td> 0 </td><td> 1 </td><td> 0 </td><td> 1 </td><td> 1 </td>   <td> 0x0B </td> <td> and </td> </tr>
+    <tr>        <td> 0 </td><td> 0 </td><td> 1 </td><td> 1 </td><td> 0 </td><td> 0 </td>   <td> 0x0C </td> <td> or </td> </tr>
+    <tr>        <td> 0 </td><td> 0 </td><td> 1 </td><td> 1 </td><td> 0 </td><td> 1 </td>   <td> 0x0D </td> <td> not </td> </tr>
+    <tr>        <td> 0 </td><td> 0 </td><td> 1 </td><td> 1 </td><td> 1 </td><td> 0 </td>   <td> 0x0E </td> <td> nand </td> </tr>
+    <tr>        <td> 0 </td><td> 0 </td><td> 1 </td><td> 1 </td><td> 1 </td><td> 1 </td>   <td> 0x0F </td> <td> nor </td> </tr>
+    <tr>        <td> 0 </td><td> 1 </td><td> 0 </td><td> 0 </td><td> 0 </td><td> 0 </td>   <td> 0x10 </td> <td> xor </td> </tr>
+    <tr>        <td> 0 </td><td> 1 </td><td> 0 </td><td> 0 </td><td> 0 </td><td> 1 </td>   <td> 0x11 </td> <td> xnor </td> </tr>
+
+    <tr>        <td> 0 </td><td> 1 </td><td> 0 </td><td> 0 </td><td> 1 </td><td> 0 </td>   <td> 0x12 </td> <td> shr </td> </tr>
+    <tr>        <td> 0 </td><td> 1 </td><td> 0 </td><td> 0 </td><td> 1 </td><td> 1 </td>   <td> 0x13 </td> <td> shl </td> </tr>
+
+    <tr> <td rowSpan={28}> 0 </td> <td rowSpan={28} className="rb"> 1 </td>
+                <td rowSpan={24} className="rb"> 0 </td>
+                        <td> 0 </td><td> 0 </td><td> 0 </td><td> 0 </td><td> 0 </td>   <td> 0x40 </td> <td> ld.const null </td> </tr>
+    
+    <tr>                <td rowSpan={2}> 0 </td> <td rowSpan={2}> 0 </td><td rowSpan={2}> 0 </td><td rowSpan={2} className="rb"> 1 </td>
+                                                                        <td> 1 </td>   <td> 0x41 </td> <td> ld.const.i1 true </td> </tr>
+    <tr>                                                                <td> 0 </td>   <td> 0x42 </td> <td> ld.const.i1 false </td> </tr>
+    <tr>                <td> 0 </td><td> 0 </td><td> 1 </td><td> 0 </td><td> 0 </td>   <td> 0x44 </td> <td> ld.const.i8 </td> </tr>
+    <tr>                <td> 0 </td><td> 0 </td><td> 1 </td><td> 0 </td><td> 1 </td>   <td> 0x45 </td> <td> ld.const.i16 </td> </tr>
+    <tr>                <td> 0 </td><td> 0 </td><td> 1 </td><td> 1 </td><td> 0 </td>   <td> 0x46 </td> <td> ld.const.i32 </td> </tr>
+    <tr>                <td> 0 </td><td> 0 </td><td> 1 </td><td> 1 </td><td> 1 </td>   <td> 0x47 </td> <td> ld.const.i64 </td> </tr>
+    <tr>                <td> 0 </td><td> 1 </td><td> 0 </td><td> 0 </td><td> 0 </td>   <td> 0x48 </td> <td> ld.const.i128 </td> </tr>
+    <tr>                <td> 0 </td><td> 1 </td><td> 0 </td><td> 0 </td><td> 1 </td>   <td> 0x49 </td> <td> ld.const.iptr </td> </tr>
+    <tr>                <td> 0 </td><td> 1 </td><td> 0 </td><td> 1 </td><td> 0 </td>   <td> 0x4A </td> <td> ld.const.i\<n> </td> </tr>
+    <tr>                <td> 0 </td><td> 1 </td><td> 0 </td><td> 1 </td><td> 1 </td>   <td> 0x4B </td> <td> ld.const.str </td> </tr>
+
+    <tr>                <td> 0 </td><td> 1 </td><td> 1 </td><td> 0 </td><td> 0 </td>   <td> 0x4C </td> <td> ld.field </td> </tr>
+    <tr>                <td> 0 </td><td> 1 </td><td> 1 </td><td> 0 </td><td> 1 </td>   <td> 0x4D </td> <td> ld.type </td> </tr>
+    <tr>                <td> 0 </td><td> 1 </td><td> 1 </td><td> 1 </td><td> 0 </td>   <td> 0x4E </td> <td> ld.funcref </td> </tr>
+    <tr>                <td> 0 </td><td> 1 </td><td> 1 </td><td> 1 </td><td> 1 </td>   <td> 0x4F </td> <td> ld.enumref </td> </tr>
+    <tr>                <td> 1 </td><td> 0 </td><td> 0 </td><td> 0 </td><td> 0 </td>   <td> 0x50 </td> <td> ld.faultref </td> </tr>
+
+    <tr>                <td> 1 </td><td> 0 </td><td> 0 </td><td> 0 </td><td> 1 </td>   <td> 0x51 </td> <td> ld.index </td> </tr>
+
+    <tr>                <td> 1 </td><td> 0 </td><td> 0 </td><td> 1 </td><td> 0 </td>   <td> 0x52 </td> <td> ld.arg.0 </td> </tr>
+    <tr>                <td> 1 </td><td> 0 </td><td> 0 </td><td> 1 </td><td> 1 </td>   <td> 0x53 </td> <td> ld.arg.1 </td> </tr>
+    <tr>                <td> 1 </td><td> 0 </td><td> 1 </td><td> 0 </td><td> 0 </td>   <td> 0x54 </td> <td> ld.arg.2 </td> </tr>
+    <tr>                <td> 1 </td><td> 0 </td><td> 1 </td><td> 0 </td><td> 1 </td>   <td> 0x55 </td> <td> ld.arg.3 </td> </tr>
+    <tr>                <td> 1 </td><td> 0 </td><td> 1 </td><td> 1 </td><td> 0 </td>   <td> 0x56 </td> <td> ld.local.\<immi8> </td> </tr>
+    <tr>                <td> 1 </td><td> 0 </td><td> 1 </td><td> 1 </td><td> 1 </td>   <td> 0x57 </td> <td> ld.local.\<immi16> </td> </tr>
+
+    <tr>                <td> 1 </td><td> 1 </td><td> 0 </td><td> 0 </td><td> 0 </td>   <td> 0x58 </td> <td> ld.length </td> </tr>
+
+    <tr> <td rowSpan={4} className="rb"> 1 </td>
+                        <td> 0 </td><td> 1 </td><td> 1 </td><td> 0 </td><td> 0 </td>   <td> 0x6C </td> <td> st.field </td> </tr>
+    <tr>                <td> 1 </td><td> 0 </td><td> 0 </td><td> 0 </td><td> 1 </td>   <td> 0x69 </td> <td> st.index </td> </tr>
+    <tr>                <td> 1 </td><td> 0 </td><td> 1 </td><td> 1 </td><td> 0 </td>   <td> 0x76 </td> <td> st.local.\<immu8> </td> </tr>
+    <tr>                <td> 1 </td><td> 0 </td><td> 1 </td><td> 1 </td><td> 1 </td>   <td> 0x77 </td> <td> st.local.\<immu16> </td> </tr>
+
+    <tr> <td rowSpan={31}> 1 </td> <td rowSpan={31} className="rb"> 0 </td>
+                <td rowSpan={6}> 0 </td> <td rowSpan={6} className="rb"> 0 </td>
+                        <td> 0 </td><td> 0 </td><td> 0 </td><td> 0 </td>   <td> 0x80 </td> <td> call.static </td> </tr>
+    <tr>                <td> 0 </td><td> 0 </td><td> 0 </td><td> 1 </td>   <td> 0x81 </td> <td> call.virt </td> </tr>
+    <tr>                <td> 0 </td><td> 0 </td><td> 1 </td><td> 0 </td>   <td> 0x82 </td> <td> tail.call </td> </tr>
+    <tr>                <td> 0 </td><td> 0 </td><td> 1 </td><td> 1 </td>   <td> 0x83 </td> <td> ret </td> </tr>
+    <tr>                <td> 0 </td><td> 1 </td><td> 0 </td><td> 0 </td>   <td> 0x84 </td> <td> throw </td> </tr>
+    <tr>                <td> 0 </td><td> 1 </td><td> 0 </td><td> 1 </td>   <td> 0x85 </td> <td> break </td> </tr>
+
+    <tr>        <td rowSpan={9}> 0 </td> <td rowSpan={9} className="rb"> 1 </td>
+                        <td> 0 </td><td> 0 </td><td> 0 </td><td> 0 </td>   <td> 0x80 </td> <td> jmp </td> </tr>
+    <tr>                <td> 0 </td><td> 0 </td><td> 0 </td><td> 1 </td>   <td> 0x81 </td> <td> jmp.if.zero </td> </tr>
+    <tr>                <td> 0 </td><td> 0 </td><td> 1 </td><td> 0 </td>   <td> 0x82 </td> <td> jmp.if.nzero </td> </tr>
+    <tr>                <td> 0 </td><td> 0 </td><td> 1 </td><td> 1 </td>   <td> 0x83 </td> <td> jmp.if.eq </td> </tr>
+    <tr>                <td> 0 </td><td> 1 </td><td> 0 </td><td> 0 </td>   <td> 0x84 </td> <td> jmp.if.neq </td> </tr>
+    <tr>                <td> 0 </td><td> 1 </td><td> 0 </td><td> 1 </td>   <td> 0x85 </td> <td> jmp.if.gr </td> </tr>
+    <tr>                <td> 0 </td><td> 1 </td><td> 1 </td><td> 0 </td>   <td> 0x86 </td> <td> jmp.if.gre </td> </tr>
+    <tr>                <td> 0 </td><td> 1 </td><td> 1 </td><td> 1 </td>   <td> 0x87 </td> <td> jmp.if.ls </td> </tr>
+    <tr>                <td> 1 </td><td> 0 </td><td> 0 </td><td> 0 </td>   <td> 0x88 </td> <td> jmp.if.lse </td> </tr>
+
+    <tr>        <td rowSpan={8}> 1 </td> <td rowSpan={8} className="rb"> 0 </td>
+                        <td> 0 </td><td> 0 </td><td> 0 </td><td> 1 </td>   <td> 0xA1 </td> <td> check.zero </td> </tr>
+    <tr>                <td> 0 </td><td> 0 </td><td> 1 </td><td> 0 </td>   <td> 0xA2 </td> <td> check.nzero </td> </tr>
+    <tr>                <td> 0 </td><td> 0 </td><td> 1 </td><td> 1 </td>   <td> 0xA3 </td> <td> check.eq </td> </tr>
+    <tr>                <td> 0 </td><td> 1 </td><td> 0 </td><td> 0 </td>   <td> 0xA4 </td> <td> check.neq </td> </tr>
+    <tr>                <td> 0 </td><td> 1 </td><td> 0 </td><td> 1 </td>   <td> 0xA5 </td> <td> check.gr </td> </tr>
+    <tr>                <td> 0 </td><td> 1 </td><td> 1 </td><td> 0 </td>   <td> 0xA6 </td> <td> check.gre </td> </tr>
+    <tr>                <td> 0 </td><td> 1 </td><td> 1 </td><td> 1 </td>   <td> 0xA7 </td> <td> check.ls </td> </tr>
+    <tr>                <td> 1 </td><td> 0 </td><td> 0 </td><td> 0 </td>   <td> 0xA8 </td> <td> check.lse </td> </tr>
+
+    <tr>        <td rowSpan={8}> 1 </td> <td rowSpan={8} className="rb"> 1 </td>
+                        <td> 0 </td><td> 0 </td><td> 0 </td><td> 1 </td>   <td> 0xB1 </td> <td> conv i1 </td> </tr>
+    <tr>                <td> 0 </td><td> 0 </td><td> 1 </td><td> 0 </td>   <td> 0xB2 </td> <td> conv i8 </td> </tr>
+    <tr>                <td> 0 </td><td> 0 </td><td> 1 </td><td> 1 </td>   <td> 0xB3 </td> <td> conv i16 </td> </tr>
+    <tr>                <td> 0 </td><td> 1 </td><td> 0 </td><td> 0 </td>   <td> 0xB4 </td> <td> conv i32 </td> </tr>
+    <tr>                <td> 0 </td><td> 1 </td><td> 0 </td><td> 1 </td>   <td> 0xB5 </td> <td> conv i64 </td> </tr>
+    <tr>                <td> 0 </td><td> 1 </td><td> 1 </td><td> 0 </td>   <td> 0xB6 </td> <td> conv i128 </td> </tr>
+    <tr>                <td> 0 </td><td> 1 </td><td> 1 </td><td> 1 </td>   <td> 0xB7 </td> <td> conv iptr </td> </tr>
+    <tr>                <td> 1 </td><td> 0 </td><td> 0 </td><td> 0 </td>   <td> 0xB8 </td> <td> conv i\<n> </td> </tr>
+
+    <tr> <td rowSpan={7}> 1 </td> <td rowSpan={7} className="rb"> 1 </td>
+                <td> 0 </td><td> 0 </td><td> 0 </td><td> 0 </td><td> 0 </td><td> 0 </td>   <td> 0xC0 </td> <td> src.offset.global </td> </tr>
+    <tr>        <td> 0 </td><td> 0 </td><td> 0 </td><td> 0 </td><td> 0 </td><td> 1 </td>   <td> 0xC1 </td> <td> src.offset.rel \<immi8> </td> </tr>
+    <tr>        <td> 0 </td><td> 0 </td><td> 0 </td><td> 0 </td><td> 1 </td><td> 0 </td>   <td> 0xC2 </td> <td> src.offset.rel \<immi16> </td> </tr>
+
+    
+    <tr> <td rowSpan={4} className="rb"> 1 </td>
+                <td rowSpan={2}> 0 </td> <td rowSpan={2}> 0 </td> <td rowSpan={2}> 0 </td> <td rowSpan={2} className="rb"> 0 </td>
+                        <td> 0 </td>   <td> 0xE0 </td> <td> flag.check_overflow off </td> </tr>
+    <tr>                <td> 1 </td>   <td> 0xE1 </td> <td> flag.check_overflow on </td> </tr>
+
+    <tr>        <td rowSpan={2}> 0 </td> <td rowSpan={2}> 0 </td> <td rowSpan={2}> 0 </td> <td rowSpan={2} className="rb"> 1 </td>
+                        <td> 0 </td>   <td> 0xE2 </td> <td> flag.check_null off </td> </tr>
+    <tr>                <td> 1 </td>   <td> 0xE3 </td> <td> flag.check_null on </td> </tr>
+
 </tbody>
 
 </table>
