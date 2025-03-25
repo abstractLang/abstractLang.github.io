@@ -87,7 +87,7 @@ const config: Config = {
     },
     prism: {
       theme: prismThemes.gruvboxMaterialLight,
-      darkTheme: prismThemes.palenight,
+      darkTheme: prismThemes.dracula,
     },
   } satisfies Preset.ThemeConfig,
 };
