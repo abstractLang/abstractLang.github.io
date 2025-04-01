@@ -6,6 +6,7 @@
 When it comes to memory management, is important to understand what is data references
 and dereferencing data before knowing how to use it.
 
+---
 In diverse cases, it's usefull, better for performance or just innavoidable to handle some
 process with the data source instead of a copy of it. To solve this problem, all systems
 allows two ways of moving data around:
@@ -50,9 +51,9 @@ copy1 = 5
 copy2 = 20
 ```
 
-With this code is possible to see that `source`, `copy1` and `copy2` has indeendent values,
-though receinving it from the same field reference. This is explained though the fact that
-the computer makes a copy of the value in `source` instead of referencing the field itself.
+With this code is possible to see that `source`, `copy1` and `copy2` has independent values,
+though receiving it from the same field reference. This is explained though the fact that
+the computer makes a copy of the value in `source` instead of derreferencing the field itself.
 This way, any modifications on data received by value will not be reflected in the original
 data source.
 
@@ -108,5 +109,44 @@ being reflected by `ref1` and `ref2`.
 
 ---
 ## Understanding Pointers And Dereference
+
+In computer origramming, pointers are a well-known and very usefull resource. It gives to the
+program the hability to dynamically derreference a data in memory. Let`s abstract the pointer
+concept into a little analogy?
+
+#### Memory Street
+Let`s suppose that our program is a street. each house is a variable stored on memory and is habitated
+by it's value
+```
+[  #1  ][    #2   ][    #3   ][  #4   ][    #5   ][    #6   ]
+[ Tom  ][ (empty) ][ (empty) ][ Marry ][ (empty) ][ (empty) ]
+------------------------------------------------------------
+--  --  --  --  --  --  --  --  --  -- -- -- -- -- -- -- --
+------------------------------------------------------------
+```
+
+John is a new data that we want to be saved in our program. as we do not know what househe will prefer
+to stay, we need to allocate his house while our program is still running.
+
+Because of it, john is able to stay in anyone of the addresses 2, 3, 5 or 6. However, our program cannot
+find the current addres of john as he is not living in a static address.
+
+Becase o it, the best option is, after jhon moved ou to his new house, ask to one of his neighbours
+by his address. As Tom and Marry have static addresses (1 and 4 respectivelly), we can ask to marry
+to hold jhon address for us and, instead of directly visiting Jhon, visit Mary first to ask his address.
+
+The same way, when our real program needs to know where a dynamically allocated data is being stored,
+storing he address of this memory region is one of the best ways to be able to read and write this data.
+
+---
+## Abstracting
+
+Alltrough pointers are usefull in many ways, handling them incorrectly can result in fatal errors and,
+in the worst case, can cause undefined behaviors. Because of this double-edged sword, abstract focus on
+minimize the necessity of handling manually with memory though the use of references instead of pointers.
+
+References can be handled exactly as pointers, exept hat they not aways derreference. References are
+optimized to evaluate during compile time, directly linking references whenever possible.
+
 
 // TODO

@@ -119,6 +119,7 @@ func sayMessage(string msg) {
 }
 ```
 
+---
 # The Static Garbage Collector
 
 However, abstract can ease the duty of cleaning up objects every single time it lifetime ends.
@@ -152,24 +153,50 @@ func main() !void {
 	const message1 = "Hello, World!"
 	sayMessage(message1)
 	# `message1` is not used anymore
-	delete message1 # by static GC
+	destroy message1 # by static GC
 	let message2 = "Today is a good day."
 	sayMessage(message2)
 	# `message2` current value is lost here
-	delete message2 # by static GC
+	destroy message2 # by static GC
 	message2 = "How are you going?"
 	sayMessage(message2)
 	# `message2` is out of scope
-	delete message2 # by static GC
+	destroy message2 # by static GC
 }
 
 func sayMessage(string msg) {
 	Std.Console.writeln(msg)
 	# `msg` is out of scope
- # Static GC does nothing here,
- # as `msg` is not owned by this
- # scope.
+	# Static GC does nothing here,
+	# as `msg` is not only owned
+	# by this scope.
 }
+```
+
+
+### disabling the garbafe Collector
+
+
+Ass everthing in abstract, you has full controll of every rsource provided, the language gives you full hability to manually choose when resources must be freeled. To disable the garbage collecting analysis and consequently, the implicit `delete` statements,use the `Std.GC` namespace to manuually control the garbage collector's behavior:
+
+```abs
+from std import { GC }
+
+func main() !void {
+	const string message = "Hello, World!"
+	Std.writeln(message)
+	# message is no more used soit is
+	# destroyed bythe GC
+
+	# This will disable the GC untill
+	# called again
+	GC.turnOff()
+
+
+	# This enabkes the GC back
+	GC.turnOn()
+}
+
 ```
 
 ---
