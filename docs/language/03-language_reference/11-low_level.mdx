@@ -12,29 +12,55 @@ Sometimes however, it is mandatory to communicate directly with the system.
 Embedded and bare-metal development, system programming and better memory
 managing are just some examples of why this access is needed.
 
+---
+## Acessing CPU Registers
+
+When compiled to some CPUs, the program binary has access to a set of CPU
+Registers that are used to do operations or controll the CPU behavior.
+
 // TODO
 
+---
 ## Inline Assembly
 
-The target will provide a library with interfaces to allow this
-connection.
+When read and write to the registers themselves are not enough, Abstract
+has a rich system that allow the user to write an entire assembly subroutine.
 
 As a example of use, being targeted to x86_64 assemby:
 
 ```abs
 from Std.Console import
-from Std.System.Assembly.x86_64Assembly import {
-    Instructions as opcode,
-    ReferenceOperators as refas
-}
+from Std.System.Assembly.x86_64Assembly import { assemblyContext }
 
 func foo()
 {
 
 	let string message = "Hello, World!";
 
-	opcode.MOV(.RDI, refas.memptr(message))
-	opcode.CALL(refas.memptr(writeln))
+	# Calling writeln(message) though assembly
+
+	# This will create the context object.
+	# The context object is used to store the
+	# entire assembly code in a tiny scope,
+	# allowing that the code will be emited as
+	# is and do not receive any optimizations.
+	assemblyContext()
+
+	# The context return an instance that contains
+	# diverse methods to write the assembly code.
+	# See the example:
+
+	# The first argument must go in the RAX register
+	# the mov instruction follows the order 'to <- from'
+	.MOV().reg(.rax).ptr(message)
+	# Then we can make a call to the function pointer
+	.CALL().ptr(writeln)
+
+	#This is equivalent to
+	###
+		MOV $rax, message
+		CALL Std.Console.writeln
+	###
 
 }
 
