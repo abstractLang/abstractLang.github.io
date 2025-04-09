@@ -2,8 +2,6 @@
 
 :::under-construction
 :::
-:::not-implemented
-:::
 
 Abstractions are made to make the programmer's life easier, symplifying
 repedititve or system-dependent tasks.
@@ -15,6 +13,9 @@ managing are just some examples of why this access is needed.
 ---
 ## Acessing CPU Registers
 
+:::not-implemented
+:::
+
 When compiled to some CPUs, the program binary has access to a set of CPU
 Registers that are used to do operations or controll the CPU behavior.
 
@@ -22,6 +23,9 @@ Registers that are used to do operations or controll the CPU behavior.
 
 ---
 ## Inline Assembly
+
+:::not-implemented
+:::
 
 When read and write to the registers themselves are not enough, Abstract
 has a rich system that allow the user to write an entire assembly subroutine.
@@ -32,10 +36,9 @@ As a example of use, being targeted to x86_64 assemby:
 from Std.Console import
 from Std.System.Assembly.x86_64Assembly import { assemblyContext }
 
-func foo()
-{
+func foo() {
 
-	let string message = "Hello, World!";
+	let string message = "Hello, World!"
 
 	# Calling writeln(message) though assembly
 
@@ -63,5 +66,24 @@ func foo()
 	###
 
 }
+```
 
+```abs
+from Std.Console import
+from Std.System.Assembly.x86_64Assembly import { assemblyContext }
+
+func say_message(string message) {
+
+	assemblyContext()
+
+	# This code makes a system call in a linux environment.
+	# This code is also targeted to x86 machines.
+
+	.MOV(.eax, 4) # sys_write
+	.MOV(.ebx, 1) # stdout
+	.MOV(.ecx, message.buffer)
+	.MOV(.edx, message.length)
+	.INT(0x80)
+
+}
 ```

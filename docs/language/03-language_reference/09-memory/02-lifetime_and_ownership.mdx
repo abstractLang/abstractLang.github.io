@@ -122,9 +122,12 @@ func sayMessage(string msg) {
 ---
 # The Static Garbage Collector
 
-However, abstract can ease the duty of cleaning up objects every single time it lifetime ends.
+However, abstract can ease the duty of cleaning up objects every single time
+it lifetime ends.
 
-The language included a feature called The Static Garbage Collector, a garbage collector that acts in compile time and is developed to carefully 8nspect, select and delete references when their lifetime ends. Take the following example:
+The language included a feature called The Static Garbage Collector, a garbage
+collector that acts in compile time and is developed to carefully 8nspect, select
+and delete references when their lifetime ends. Take the following example:
 
 ```abs
 func main() !void {
@@ -145,7 +148,8 @@ func sayMessage(string msg) {
 }
 ```
 
-Even without any destructor calls, this code can finely be compiled and executed without any leaks, thanks to the static GC.
+Even without any destructor calls, this code can finely be compiled and executed
+without any leaks, thanks to the static GC.
 
 
 ```abs title="Static GC post-processed code
@@ -177,9 +181,14 @@ func sayMessage(string msg) {
 ### disabling the garbafe Collector
 
 
-Ass everthing in abstract, you has full controll of every rsource provided, the language gives you full hability to manually choose when resources must be freeled. To disable the garbage collecting analysis and consequently, the implicit `delete` statements,use the `Std.GC` namespace to manuually control the garbage collector's behavior:
+Ass everthing in abstract, you has full controll of every rsource provided, the
+language gives you full hability to manually choose when resources must be freeled.
+To disable the garbage collecting analysis and consequently, the implicit `delete`
+statements, use the `Std.GC` namespace to manuually control the garbage collector's
+behavior:
 
 ```abs
+from MyProgram import { MyHeapObject }
 from std import { GC }
 
 func main() !void {
@@ -192,11 +201,13 @@ func main() !void {
 	# called again
 	GC.turnOff()
 
-
-	# This enabkes the GC back
+	var myObject = new MyHeapObject();
+	
+	# This enables the GC again
 	GC.turnOn()
-}
 
+	delete myObject
+}
 ```
 
 ---
