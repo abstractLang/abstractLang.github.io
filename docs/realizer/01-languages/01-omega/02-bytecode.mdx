@@ -117,20 +117,20 @@
     <tr>                <td> 0 </td><td> 1 </td><td> 1 </td><td> 1 </td>   <td> 0xB7 </td> <td> conv iptr </td> </tr>
     <tr>                <td> 1 </td><td> 0 </td><td> 0 </td><td> 0 </td>   <td> 0xB8 </td> <td> conv i\<n> </td> </tr>
 
-    <tr> <td rowSpan={7}> 1 </td> <td rowSpan={7} className="rb"> 1 </td>
-                <td> 0 </td><td> 0 </td><td> 0 </td><td> 0 </td><td> 0 </td><td> 0 </td>   <td> 0xC0 </td> <td> src.offset.global </td> </tr>
-    <tr>        <td> 0 </td><td> 0 </td><td> 0 </td><td> 0 </td><td> 0 </td><td> 1 </td>   <td> 0xC1 </td> <td> src.offset.rel \<immi8> </td> </tr>
-    <tr>        <td> 0 </td><td> 0 </td><td> 0 </td><td> 0 </td><td> 1 </td><td> 0 </td>   <td> 0xC2 </td> <td> src.offset.rel \<immi16> </td> </tr>
+    <tr> <td rowSpan={5}> 1 </td> <td rowSpan={5} className="rb"> 1 </td>
+                <td rowSpan={3} className="rb"> 0 </td>
+                <td> 0 </td><td> 0 </td><td> 0 </td><td> 0 </td><td> 0 </td>   <td> 0xC0 </td> <td> src.offset.global </td> </tr>
+    <tr>        <td> 0 </td><td> 0 </td><td> 0 </td><td> 0 </td><td> 1 </td>   <td> 0xC1 </td> <td> src.offset.rel \<immi8> </td> </tr>
+    <tr>        <td> 0 </td><td> 0 </td><td> 0 </td><td> 1 </td><td> 0 </td>   <td> 0xC2 </td> <td> src.offset.rel \<immi16> </td> </tr>
 
     
-    <tr> <td rowSpan={4} className="rb"> 1 </td>
-                <td rowSpan={2}> 0 </td> <td rowSpan={2}> 0 </td> <td rowSpan={2}> 0 </td> <td rowSpan={2} className="rb"> 0 </td>
-                        <td> 0 </td>   <td> 0xE0 </td> <td> flag.check_overflow off </td> </tr>
-    <tr>                <td> 1 </td>   <td> 0xE1 </td> <td> flag.check_overflow on </td> </tr>
+    <tr> <td rowSpan={2} className="rb"> 1 </td>
+                <td rowSpan={1}> 0 </td> <td rowSpan={1}> 0 </td> <td rowSpan={1}> 0 </td> <td rowSpan={1}> 0 </td> <td rowSpan={1} className="rb"> 0 </td>
+                        <td> 0xE0 </td> <td> allowoverflow. </td> </tr>
+    <tr>        <td rowSpan={1}> 0 </td> <td rowSpan={1}> 0 </td> <td rowSpan={1}> 0 </td> <td rowSpan={1}> 0 </td> <td rowSpan={1} className="rb"> 1 </td>
+                        <td> 0xE1 </td> <td> allownull. </td> </tr>
+    
 
-    <tr>        <td rowSpan={2}> 0 </td> <td rowSpan={2}> 0 </td> <td rowSpan={2}> 0 </td> <td rowSpan={2} className="rb"> 1 </td>
-                        <td> 0 </td>   <td> 0xE2 </td> <td> flag.check_null off </td> </tr>
-    <tr>                <td> 1 </td>   <td> 0xE3 </td> <td> flag.check_null on </td> </tr>
 
 </tbody>
 

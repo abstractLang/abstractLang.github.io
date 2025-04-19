@@ -36,10 +36,7 @@ entry.
 There are two kinds of entries that can fit in a typedef: numericals and named entries.
 Is important to notice that both entries kinds can be used for eny type, although they
 behave diferently when using integer types or not.
-
-To define numeric entries, just write the desired numbers, separated by comma:
-
-```abs
+i already have a place and money t
 typedef MyCustomType {
     1, 2, 3, 4, 5,
     10, 15, 20, 25, 30

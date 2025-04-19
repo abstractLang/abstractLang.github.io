@@ -31,10 +31,10 @@ Inside the packet, you can include primitives and other structures.
 Packets are used at the same way as structures:
 ```abs
 let MyDinner dinner = MyDinner {
-	hasFork: true,
-	hasSpoon: true,
-	hasKnife: true,
-	hasPlate: false,
+	hasFork: true
+	hasSpoon: true
+	hasKnife: true
+	hasPlate: false
 	hungerLevel: 10
 }
 ```
@@ -45,13 +45,13 @@ and you can use the dot operator (`.`) to acess it fields:
 ```abs
 import from Std.Console
 
-if (!dinner.hasFork)  writeln("Comrade doesn't have a fork!");
-if (!dinner.hasSpoon) writeln("Comrade doesn't have a spoon!");
-if (!dinner.hasKnife) writeln("Comrade doesn't have a knife!");
-if (!dinner.hasPlate) writeln("Comrade doesn't have a plate!");
+if (!dinner.hasFork)  writeln("Comrade doesn't have a fork!")
+if (!dinner.hasSpoon) writeln("Comrade doesn't have a spoon!")
+if (!dinner.hasKnife) writeln("Comrade doesn't have a knife!")
+if (!dinner.hasPlate) writeln("Comrade doesn't have a plate!")
 
-if   (!dinner.hungerLevel > 10) writeln("They're starving!!!!");
-elif (!dinner.hungerLevel > 5)  writeln("They're hungry!");
+if   (!dinner.hungerLevel > 10) writeln("They're starving!!!!")
+elif (!dinner.hungerLevel > 5)  writeln("They're hungry!")
 ```
 
 ```text title="Console Output"

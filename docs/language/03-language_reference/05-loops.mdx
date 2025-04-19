@@ -1,24 +1,76 @@
 # Loops
-
 :::under-construction
 :::
+
+Complex programs aways needs to do repetitive or infinite tasks. Because of it,
+loops must be used. Loops are structures used to repeat a selected code section
+until some condition is reached. Bellow are the loop types that abstract supports:
+
+---
+## While loops
 :::not-implemented
 :::
 
-## While loops
+While loops are the most basic loop types. It while it conditional is valid or
+the code reaches a breakpoint.
+
+This is the structure of a while syntax:
 ```abs
-let index = 0
+while <condition> => <instruction>
+```
 
-while index++ < 10 => Std.Console.log("Hello, World!")
-
+While loops do not have iterators, so in this cse we must create our own:
+```abs
+let index = 10
 while index >= 0 => {
-	index -= 2
 	Std.Console.log("Hello, Scopped World!")
+	index -= 2
 }
+Std.Console.writeln(index)
+```
+```text title="Console Output"
+Hello, Scopped World!
+Hello, Scopped World!
+Hello, Scopped World!
+Hello, Scopped World!
+Hello, Scopped World!
+0
+```
+
+Using a `break` statement, it is possible to stop the loop before it has reached
+it condition:
+```abs
+let index = 10
+while index >= 0 => {
+	Std.Console.log("Hello, Scopped World!")
+	index -= 2
+
+	if index < 5 break
+}
+Std.Console.writeln(index)
+```
+```text title="Console Output"
+Hello, Scopped World!
+Hello, Scopped World!
+Hello, Scopped World!
+4
+```
+
+Using `:` is also possible to define an extra step for the loop to do
+after each iteration:
+
+```abs
+# Parenthesis are optional, but helps to read!
+let index = 0
+while (index < 10) : (index++) => Std.Console.log("Hello, World!")
 ```
 
 ---
 ## For loops
+:::not-implemented
+:::
+
+// TODO
 
 ```abs
 from Std.Console import
@@ -32,7 +84,7 @@ for i in ..50:10 => writeln(i)
 # Looping though each element of a array
 let []byte numbers = [22, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43]
 for v in numbers => {
-    write("Example of a prime number:")
-    writeln(v)
+	write("Example of a prime number:")
+	writeln(v)
 }
 ```

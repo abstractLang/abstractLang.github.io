@@ -93,6 +93,37 @@ Std.Console.writeln(myChar as byte) # '87'
 ```
 
 ---
+## Range
+:::not-implemented
+:::
+
+Ranges are types with a special syntax and are used widelly though the language.
+They can be representd as:
+```abs
+<start>..<finish>:<step>
+```
+And some values can be implicited, like:
+```abs
+.. 10        # from 0 to 10
+.. 10 :  8   # from 0 to 10 in steps of 8
+5 ..         # from 5 to MAXINT
+5 .. :  14   # from 0 to MAXINT in steps of 14
+```
+
+To iterate though a range, get a instance of the range iterator:
+```abs
+from Std.Console import
+
+const myRange = 0..20 : 2
+var iterator = myRange.iterator()
+
+var uptr i
+while (iterator.reachEnd()) : (i = iterator.next()) {
+    writeln(i)
+}
+```
+
+---
 ## Void
 :::not-implemented
 :::

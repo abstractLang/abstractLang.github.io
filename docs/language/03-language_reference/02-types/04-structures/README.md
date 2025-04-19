@@ -59,8 +59,21 @@ let Biography myBio = new Biography();
 myBio.name = "Camila"
 myBio.github = "lumi2021"
 myBio.age = 17
-myBio.birthYear = 2007
+myBio.birthYear = 07
 ```
+
+Or use the inline constructor to do it:
+```abs
+# Declarating the variable, creating the instance
+# and efining the initial data ...
+let Biography myBio = new Biography() {
+	myBio.name = "Camila"
+	myBio.github = "lumi2021"
+	myBio.age = 17
+	myBio.birthYear = 07
+}
+```
+
 
 To make life easyer, the language allows to declarate a special function that will be called automatically
 when the structure is initialized, called constructor. The constructor can accept parameters, read and set
@@ -69,7 +82,7 @@ variables and run code as any function can do.
 A constructor can be declarated as follows:
 ```abs
 struct Biography {
-	...
+	# ...
 	constructor() {
 		# This will run when the structure is instantiated!
 	}
@@ -79,7 +92,7 @@ struct Biography {
 As it need some input data, the constructor will ask for some arguments:
 ```abs
 struct Biography {
-	...
+	# ...
 	constructor(string name, string gh, u8 age) {
 		# This will run when the structure is instantiated!
 	}
@@ -95,17 +108,53 @@ declarated constructors (it includes empty constructors).
 after that, we can process the data how we want:
 ```abs
 struct Biography {
-	...
+	# ...
 	constructor(string name, string gh, string age) {
 		# `this` is used to get the current instance.
 		# it should be used in case of naming conflict.
 		# Oterwise, it's unecessary.
-		this.name = name;
-		github = gh;
-		this.age = age;
-		birthday = 2024 - age;
+		this.name = name
+		github = gh
+		this.age = age
+		birthday = 24 - age
 	}
 }
+```
+
+As default, the constructor will handle the stack allocation of the data being initialized. Sometimes, however,
+it is necessary to have control of this step manually in case of initializing data in the heap or something
+more specific. The defualt way of doing this is with a standard static function:
+
+```abs
+struct Biography {
+	@public @static _new(string name, string gh, string age) {
+		this.name = name
+		github = gh
+		this.age = age
+		birthday = 24 - age
+	}
+}
+
+let myBio = Biography._new("Camila", "lumi2021", 17)
+```
+
+Or you can use the `@raw(T)` attribute to declarate a specific return type for the constructor:
+```abs
+from Std.Memory import
+
+struct Biography {
+	@raw(*Biography) constructor(string name, string gh, string age) {
+		let newBio = alloc(Biography)
+
+		newBio.name = name
+		newBio.github = gh
+		newBio.age = age
+		newBio.birthday = 24 - age
+
+		return newBio
+	}
+}
+
 ```
 
 ---
