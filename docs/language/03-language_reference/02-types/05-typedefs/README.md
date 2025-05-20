@@ -34,16 +34,17 @@ entry.
 ## Defining Entries
 
 There are two kinds of entries that can fit in a typedef: numericals and named entries.
-Is important to notice that both entries kinds can be used for eny type, although they
-behave diferently when using integer types or not.
-i already have a place and money t
+Is important to notice that both entries kinds can be used for any type, although they
+must be defined slightly diferent when using integer types or not.
+
+```
 typedef MyCustomType {
     1, 2, 3, 4, 5,
     10, 15, 20, 25, 30
 }
 ```
 
-Numeric entries can anso be defined using the range notation:
+Numeric entries can also be defined using the range notation:
 
 ```abs
 typedef MyCustomType {
@@ -65,4 +66,56 @@ typedef MyCustomType {
 }
 ```
 
-// TODO
+## Using Typedefs
+
+After define entries inside the typedef, you will be ble to use them as literal values.
+
+When using numeric values, you can just use a number literal included in the typedef:
+```abs
+let MyCustomType = 5
+```
+Using a number that is not included in the typedef will result in a compilation error.
+
+When using literal values, you need to first referenceate the typedef or use the dot
+notation to automatically identify the typedef type, if possible:
+```abs
+leet MyCustomType mytype1 = MyCustomType.NamedValue1
+leet MyCustomType mytype2 = .NamedValue2
+```
+
+Take this typedef implementation as a example:
+
+```abs
+typedef Food {
+    hamburger,
+    vegan_burger,
+    x_burger,
+    salad,
+    orange_juice,
+    chocolate_milk,
+    cola
+}
+
+# This function receives a  string and
+# Normalize the data into `Food`.
+# Returns an error if the input is not
+# recognized.
+func doOrder(string order) !void {
+
+    let Food foodValue = switch (order.trim()) {
+        "hamburger" => .hamburger,
+        "vegan burger" => .vegan_burger,
+        "x burger" => .x_burger,
+        "salad" =>  .salad,
+        "orange juice" => .orange_juice,
+        "chocolate milk" or
+        "choco milk" => .chocolate_milkk,
+        "cola" => .cola,
+
+        _ => throw falt.UnrecognizedInput()
+    }
+
+}
+```
+
+

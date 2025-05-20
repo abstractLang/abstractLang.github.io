@@ -55,9 +55,9 @@ func foo() {
 
 	# The first argument must go in the RAX register
 	# the mov instruction follows the order 'to <- from'
-	.MOV().reg(.rax).ptr(message)
+	.MOV(.rax, message)
 	# Then we can make a call to the function pointer
-	.CALL().ptr(writeln)
+	.CALL(&writeln)
 
 	#This is equivalent to
 	###
