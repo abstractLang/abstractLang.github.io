@@ -21,11 +21,11 @@ namespace Std.System
 ## Namespaces
 | Namespace | Description |
 |:---------:|:------------|
-| OS        | Implementetions of interfaces between the host OS APIs |
+| [OS](OS/) | Implementetions of interfaces between the host OS APIs |
 | x86       | Specific operations for the Intel x86 archtecture |
 | x86_64    | Specific operations for the Intel x86_64 archtecture |
 | AArch64   | Specific operations for the 64-bit ARM archtecture |
-| RISK_V    | Specific operations for the RISK-V archtecture |
+| RISC_V    | Specific operations for the RISK-V archtecture |
 
 ---
 
