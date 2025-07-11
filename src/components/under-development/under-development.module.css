@@ -1,4 +1,4 @@
-.warningBar {
+/* .warningBar {
     
     padding: 5px;
     text-align: center;
@@ -15,7 +15,23 @@
             #000000 120px
         );
 
+} */
+
+.warningBar {
+    text-align: center;
+    background-color: transparent;
+    color: red;
+    
+    position: relative;
+    top: -50px;
 }
+
+@media screen and (max-width: 996px) {
+    .warningBar {
+        top: -20px;
+    }
+}
+
 .warningBar b {
     font-weight: bolder;
 }

@@ -10,12 +10,19 @@ function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
 
   return (
-    <header className={clsx('hero hero--primary', styles.heroBanner)}>
+    <header className={clsx(styles.heroBanner)}>
+
+      <UnderDevelopmentBanner></UnderDevelopmentBanner>
+
       <div className="container">
-        <Heading as="h1" className="hero__title">
-          ABSTRACT
-        </Heading>
-        <p className="hero__subtitle">Programming language</p>
+        <img className={styles.imageLogo} src='img/logo.png'></img>
+        <Heading as="h1" className="hero__title">|Abstract|</Heading>
+        <p className="hero__subtitle">Programming language_</p>
+
+        <div className={styles.bannerRoutes}>
+          <a href="docs/language/first_prog">Get Started</a>
+          <a href="https://github.com/abstractLang/Abstract">View on GitHub</a>
+        </div>
       </div>
     </header>
   );
@@ -28,8 +35,6 @@ export default function Home(): JSX.Element {
       title={`${siteConfig.title}`}
       description="">
       
-      <UnderDevelopmentBanner></UnderDevelopmentBanner>
-
       <HomepageHeader />
       <main className={styles.warning}>
         Warning! <br/>
