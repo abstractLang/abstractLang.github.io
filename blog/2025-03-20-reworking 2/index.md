@@ -5,7 +5,7 @@ authors: lumi
 tags: [devlog]
 ---
 
-Rworking in the compiler from stack. Again...
+Rworking in the compiler from scratch. Again...
 
 <!-- truncate -->
 

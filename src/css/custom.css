@@ -18,6 +18,11 @@
 
   --orange-warning-shade-0: hsl(20, 100%, 80%);
   --orange-warning-shade-1: hsl(20, 100%, 60%);
+
+  --ifm-heading-h1-font-size: 1.5rem;
+  --ifm-heading-h2-font-size: 1.3rem;
+  --ifm-heading-h3-font-size: 1.1rem;
+  
 }
 
 
