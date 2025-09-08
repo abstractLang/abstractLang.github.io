@@ -34,7 +34,7 @@ As a example of use, being targeted to x86_64 assemby:
 
 ```abs
 from Std.Console import
-from Std.System.Assembly.x86_64Assembly import { assemblyContext }
+from Std.System.Assembly import { assemblyContext }
 
 func foo() {
 
@@ -53,11 +53,16 @@ func foo() {
 	# diverse methods to write the assembly code.
 	# See the example:
 
-	# The first argument must go in the RAX register
+	# The first argument must go in the RDI register
 	# the mov instruction follows the order 'to <- from'
-	.MOV(.rax, message)
-	# Then we can make a call to the function pointer
-	.CALL(&writeln)
+	.MOV(.rdi, &message)
+
+	# Then we can make a call to the function
+	.CALL(writeln)
+
+	# `.execute()` must be called to the
+	# code to take effect.
+	.execute()
 
 	#This is equivalent to
 	###
@@ -70,7 +75,7 @@ func foo() {
 
 ```abs
 from Std.Console import
-from Std.System.Assembly.x86_64Assembly import { assemblyContext }
+from Std.System.Assembly import { assemblyContext }
 
 func say_message(string message) {
 
@@ -81,9 +86,11 @@ func say_message(string message) {
 
 	.MOV(.eax, 4) # sys_write
 	.MOV(.ebx, 1) # stdout
-	.MOV(.ecx, message.buffer)
+	.MOV(.ecx, message)
 	.MOV(.edx, message.length)
 	.INT(0x80)
+
+	.execute()
 
 }
 ```
