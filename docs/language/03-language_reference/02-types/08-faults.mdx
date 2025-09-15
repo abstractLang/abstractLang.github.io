@@ -80,10 +80,10 @@ tryToReturnSomething() catch {
 # As well
 tryToDoSomething().onCatch((fault err) => {
 	Std.Console.writeln("A fault of type \{err.name} has occurred!") })
-tryToReturnSomething().onCatch(() => {
+tryToReturnSomething().onCatch((fault err) => {
 	Std.Console.writeln("The process could not be completed,")
 	Std.Console.writeln("aborting due internal error!")
-	throw
+	throw err
 })
 ```
 
@@ -115,20 +115,17 @@ using tha bang character (`!`) before the desired to wrap type:
 
 ```abs
 func foo() !void        # A failable function that returns nothing
-func foo() !i32         # A failable function that returns a integer
+func foo() !i32         # A failable function that returns na integer
 func foo() !f32         # A failable function that returns a floating
 func foo() !?bool       # A failable function that returns a nullable boolean
-func foo() ![]string    # A failable function that returns a array of strings
+func foo() ![]string    # A failable function that returns an array of strings
 ```
 
 Inside this function, we create a condition to verify the error as follows:
 
 ```abs
 func safeDivide(f32 numerator, f32 denominator) !f32 {
-	if (denominator == 0) {
-		# Raise a fault here!
-	}
-
+	if (denominator == 0) {} # Raise a fault here!
 	return numerator / denominator
 }
 ```

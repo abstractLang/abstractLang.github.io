@@ -14,7 +14,7 @@ This block can easily be called by other functions in any moment or order.
 
 A example of function declaration and call in abstract is
 ```abs
-func void foo() {
+func foo() void {
 	Std.Console.writeln("foo called!")
 }
 
@@ -26,11 +26,11 @@ foo called!
 
 the syntax for declarate a function is:
 ```abs
-func <type> <name>(...) { ... }
+func <name>(...) <type> { ... }
 ```
 
-where `<type>` is the type that the function returns and `<name>` is the identifier for
-reffer to the function.
+where `<name>` is the identifier for reffer to the function and
+`<type>` is the type that the function returns.
 
 A function can be invoked by it reference followed by a opening and closing parenthesis `()` as follows:
 ```abs
@@ -57,7 +57,7 @@ func void foo(anytype any, i32 number) { ... }
 
 If the function ask for arguments, the values should be declarated, in order, inside the parenthesis
 ```abs
-@public func void foo(i32 a, i8 b, i128 c) { ... }
+@public func foo(i32 a, i8 b, i128 c) void { ... }
 
 const i32 myInt = 100
 const myByte = 255
@@ -97,13 +97,13 @@ a repetitive or optional value.
 ```abs title="Good Practice"
 # Different results are named diferently
 
-func void writeText(string value) {
+func writeText(string value) void {
 	Std.Console.writeln("My string is: " + value)
 }
-func void writeText([]char value) {
+func writeText([]char value) void {
 	Std.Console.writeln("My string is: " + string.join(value))
 }
-func void writeNumber(i32 value) {
+func writeNumber(i32 value) void {
 	Std.Console.writeln("My number is: " + value)
 }
 ```
@@ -112,13 +112,13 @@ func void writeNumber(i32 value) {
 # Different results with the same name can result in a
 # harder understanding of the code
 
-func void writeText(string value) {
+func writeText(string value) void {
 	Std.Console.writeln("My string is:" + value)
 }
-func void writeText([]char value) {
+func writeText([]char value) void {
 	Std.Console.writeln("My string is:" + string.join(value))
 }
-func void writeText(i32 value) {
+func writeText(i32 value) void {
 	Std.Console.writeln("My number is:" + value)
 }
 ```

@@ -22,7 +22,7 @@ while <condition> => <instruction>
 While loops do not have iterators, so in this cse we must create our own:
 ```abs
 let index = 10
-while index >= 0 => {
+while index > 0 => {
 	Std.Console.log("Hello, Scopped World!")
 	index -= 2
 }

@@ -22,7 +22,7 @@ sequence of data in the memory that can be indexed by its position on the list.
 
 In abstract, array types are delcared as follows:
 ```
-[]AnyType
+[]anytype
 ```
 `[]` being a type modifier, indicating an array list of the following type
 
@@ -48,7 +48,7 @@ Sometimes it is more convenient to just assign the elements to an array without 
 In that case, the Abstract compiler can figure out the length on its own. Hence, the following syntax is also valid:
 ```abs
 # pay attention to the empty type modifier!
-let []AnyType = [values..]
+let []i8 myArray = [values..]
 ```
 
 If the developer want to specify an array length but define only some of the elements, then
@@ -83,9 +83,9 @@ let i32 elementAt2 = myArray[2] # = 30
 # Any numeric integer data type can be used as
 # a indexer!
 let i8 myIndex = 0
-Std.Console.log(myArray[myIndex]) # out: 10
+Std.Console.writeln(myArray[myIndex]) # out: 10
 myIndex = 4
-Std.Console.log(myArray[myIndex]) # out: 50
+Std.Console.writeln(myArray[myIndex]) # out: 50
 ```
 
 ---
@@ -107,13 +107,13 @@ func main() !void {
     # Elements can be added to the list with
     # no worries as it will dinamically allocate
     # memory when needed.
-    byteList.Add(10)
-    byteList.Add(20)
-    byteList.Add(30)
-    byteList.Add(40)
+    byteList.add(10)
+    byteList.add(20)
+    byteList.add(30)
+    byteList.add(40)
 
     # Elements can also be removed from the list
-    byteList.RemoveAt(2)
+    byteList.removeAt(2)
 
     for i in byteList => writeln(i)
 }

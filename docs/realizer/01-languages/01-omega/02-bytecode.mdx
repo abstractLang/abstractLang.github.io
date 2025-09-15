@@ -13,11 +13,11 @@
     </thead>
 
     <tbody>
-        {/* ===== nop, invalid, Stack ===== */}
+        {/* ===== nop, invalid, stack, control flow ===== */}
         <tr>
-            <td rowSpan={6}>0</td>
-            <td rowSpan={6}>0</td>
-            <td rowSpan={6}>0</td>
+            <td rowSpan={27}>0</td>
+            <td rowSpan={27}>0</td>
+            <td rowSpan={27}>0</td>
         </tr>
         
         <tr> <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td> <td>0x00</td> <td>nop</td>     <td colSpan={2}></td> </tr>
@@ -25,8 +25,31 @@
         <tr> <td>0</td><td>0</td><td>0</td><td>1</td><td>0</td> <td>0x02</td> <td>pop</td>     <td colSpan={2}></td> </tr>
         <tr> <td>0</td><td>0</td><td>0</td><td>1</td><td>1</td> <td>0x03</td> <td>dup</td>     <td colSpan={2}></td> </tr>
         <tr> <td>0</td><td>0</td><td>1</td><td>0</td><td>0</td> <td>0x04</td> <td>swap</td>    <td colSpan={2}></td> </tr>
-        
 
+        <tr> <td>0</td><td>0</td><td>1</td><td>0</td><td>1</td> <td>0x05</td> <td>call</td>       <td>Function</td> <td></td> </tr>
+        <tr> <td>0</td><td>0</td><td>1</td><td>1</td><td>0</td> <td>0x06</td> <td>call.virt</td>  <td colSpan={2}></td> </tr>
+        <tr> <td>0</td><td>0</td><td>1</td><td>1</td><td>1</td> <td>0x07</td> <td>ret</td>        <td colSpan={2}></td> </tr>
+        <tr> <td>0</td><td>1</td><td>0</td><td>0</td><td>0</td> <td>0x08</td> <td>break</td>      <td colSpan={2}></td> </tr>
+        
+        <tr> <td>0</td><td>1</td><td>0</td><td>0</td><td>1</td> <td>0x09</td> <td>jmp</td>            <td>addr</td> <td></td> </tr>
+        <tr> <td>0</td><td>1</td><td>0</td><td>1</td><td>0</td> <td>0x0A</td> <td>jmp.if.zero</td>    <td>addr</td> <td></td> </tr>
+        <tr> <td>0</td><td>1</td><td>0</td><td>1</td><td>1</td> <td>0x0B</td> <td>jmp.if.nzero</td>   <td>addr</td> <td></td> </tr>
+        <tr> <td>0</td><td>1</td><td>1</td><td>0</td><td>0</td> <td>0x0C</td> <td>jmp.if.eq</td>      <td>addr</td> <td></td> </tr>
+        <tr> <td>0</td><td>1</td><td>1</td><td>0</td><td>1</td> <td>0x0D</td> <td>jmp.if.neq</td>     <td>addr</td> <td></td> </tr>
+        <tr> <td>0</td><td>1</td><td>1</td><td>1</td><td>0</td> <td>0x0E</td> <td>jmp.if.gr</td>      <td>addr</td> <td></td> </tr>
+        <tr> <td>0</td><td>1</td><td>1</td><td>1</td><td>1</td> <td>0x0F</td> <td>jmp.if.ge</td>      <td>addr</td> <td></td> </tr>
+        <tr> <td>1</td><td>0</td><td>0</td><td>0</td><td>0</td> <td>0x10</td> <td>jmp.if.ls</td>      <td>addr</td> <td></td> </tr>
+        <tr> <td>1</td><td>0</td><td>0</td><td>0</td><td>1</td> <td>0x11</td> <td>jmp.if.le</td>      <td>addr</td> <td></td> </tr>
+
+        <tr> <td>1</td><td>0</td><td>0</td><td>1</td><td>0</td> <td>0x12</td> <td>jmp.if.zero.set</td>      <td>addr</td> <td></td> </tr>
+        <tr> <td>1</td><td>0</td><td>0</td><td>1</td><td>1</td> <td>0x13</td> <td>jmp.if.nzero.clear</td>   <td>addr</td> <td></td> </tr>
+        <tr> <td>1</td><td>0</td><td>1</td><td>0</td><td>0</td> <td>0x14</td> <td>jmp.if.carry.set</td>     <td>addr</td> <td></td> </tr>
+        <tr> <td>1</td><td>0</td><td>1</td><td>0</td><td>1</td> <td>0x15</td> <td>jmp.if.carry.clear</td>   <td>addr</td> <td></td> </tr>
+        <tr> <td>1</td><td>0</td><td>1</td><td>1</td><td>0</td> <td>0x16</td> <td>jmp.if.sign.set</td>      <td>addr</td> <td></td> </tr>
+        <tr> <td>1</td><td>0</td><td>1</td><td>1</td><td>1</td> <td>0x17</td> <td>jmp.if.sign.clear</td>    <td>addr</td> <td></td> </tr>
+        <tr> <td>1</td><td>1</td><td>0</td><td>0</td><td>0</td> <td>0x18</td> <td>jmp.if.ovf.set</td>       <td>addr</td> <td></td> </tr>
+        <tr> <td>1</td><td>1</td><td>0</td><td>0</td><td>1</td> <td>0x19</td> <td>jmp.if.ofv.clear</td>     <td>addr</td> <td></td> </tr>
+        
         {/* ===== Arithmetic ===== */}
         <tr>
             <td rowSpan={18}>0</td>
@@ -77,8 +100,8 @@
             <td rowSpan={26}>1</td>
         </tr>
 
-        <tr> <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td> <td>0x60</td> <td>ld.const.i1 0</td>     <td colSpan={2}></td> </tr>
-        <tr> <td>0</td><td>0</td><td>0</td><td>0</td><td>1</td> <td>0x61</td> <td>ld.const.i1 1</td>     <td colSpan={2}></td> </tr>
+        <tr> <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td> <td>0x60</td> <td>ld.const.i1 0</td>   <td colSpan={2}></td> </tr>
+        <tr> <td>0</td><td>0</td><td>0</td><td>0</td><td>1</td> <td>0x61</td> <td>ld.const.i1 1</td>   <td colSpan={2}></td> </tr>
         <tr> <td>0</td><td>0</td><td>0</td><td>1</td><td>0</td> <td>0x62</td> <td>ld.const.i8</td>     <td>imm8</td> <td></td> </tr>
         <tr> <td>0</td><td>0</td><td>0</td><td>1</td><td>1</td> <td>0x63</td> <td>ld.const.i16</td>    <td>imm16</td> <td></td> </tr>
         <tr> <td>0</td><td>0</td><td>1</td><td>0</td><td>0</td> <td>0x64</td> <td>ld.const.i32</td>    <td>imm32</td> <td></td> </tr>
@@ -121,13 +144,15 @@
 
         {/* ===== type conversion ===== */}
         <tr>
-            <td rowSpan={4}>1</td>
-            <td rowSpan={4}>0</td>
-            <td rowSpan={4}>1</td>
+            <td rowSpan={6}>1</td>
+            <td rowSpan={6}>0</td>
+            <td rowSpan={6}>1</td>
         </tr>
 
         <tr> <td>0</td><td>0</td><td>0</td><td>0</td><td>0</td> <td>0xA0</td> <td>extend</td>     <td>imm8</td> <td></td> </tr>
         <tr> <td>0</td><td>0</td><td>0</td><td>0</td><td>1</td> <td>0xA1</td> <td>trunc</td>      <td>imm8</td> <td></td> </tr>
+        <tr> <td>0</td><td>0</td><td>0</td><td>1</td><td>0</td> <td>0xA2</td> <td>sigcast.s</td>  <td colSpan={2}></td> </tr>
+        <tr> <td>0</td><td>0</td><td>0</td><td>1</td><td>0</td> <td>0xA2</td> <td>sigcast.u</td>  <td colSpan={2}></td> </tr>
         <tr> <td>0</td><td>0</td><td>0</td><td>1</td><td>0</td> <td>0xA2</td> <td>bitcast</td>    <td>imm8</td> <td></td> </tr>
 
         {/* ===== Memop ===== */}

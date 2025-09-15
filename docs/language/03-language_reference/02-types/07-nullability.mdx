@@ -14,13 +14,12 @@ a variety of security features to prevent errors when acessing null values.
 ---
 ## The nullable wrapper
 
-Abstract allows to declarate nullable types wrapping them with the nullable structure.
-This wrapping can be also easily made putting the interrogation (`?`) character right
-before the desired type.
+Abstract allows to declarate nullable types wrapping them with the nullable generic type.
+This wrapping can be made putting the interrogation (`?`) character right before the desired type.
 ```abs
-?void    # same as Std.Types.Nullable(void)
-?i32     # same as Std.Types.Nullable(i32)
-?string  # same as Std.Types.Nullable(i32)
+?i32
+?string
+?*List
 ```
 
 ---
