@@ -5,8 +5,14 @@
 ### `nop` - No Operation
 Does not performs any operation,  using a CPU cycle
 
+### `unreachable` - Unreachable Instruction
+Reserved opcode for a invalid instruction code, can be used for marking the
+execution point as unreachable, generating an handleable exeption
+
+
 ### `invalid` - Invalid Instruction
-Reserved instruction for a invalid instruction code, used for debug
+Reserved opcode for a invalid instruction code, can be used for debug, generating
+an unhandled exeption
 
 ---
 ## Data Logistic
