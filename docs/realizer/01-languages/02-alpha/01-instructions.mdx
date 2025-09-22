@@ -77,31 +77,25 @@ goto(X)
 ```
 Jumps to the address `X`
 
-### `je` - Jump if equals
+### `jmp.e` - Jump if equals
 ```
 if (flags(Zero)) goto(X)
 ```
 Jumps to the address `X` if flag zero is set
 
-### `jne` - Jump if not equals
+### `jmp.ne` - Jump if not equals
 ```
 if (!flags(Zero)) goto(X)
 ```
 Jumps to the address `X` if flag zero is clear
 
-### `jgr` - Jump if greater
-### `jlr` - Jump if lesser
-### `jge` - Jump if greater or equals
-### `jle` - Jump if lesser or equals
+### `jmp.gr` - Jump if greater
+### `jmp.lr` - Jump if lesser
+### `jmp.ge` - Jump if greater or equals
+### `jmp.le` - Jump if lesser or equals
 
 ---
 ## Logic
-### `add` - Add registers
-### `sub` - Subtract registers
-### `mul` - Multiply registers
-### `div` - Divide registers
-### `rem` - Get registers division reminder
-
 ### `neg` - Negate
 ### `and` - Bitwise AND
 ### `or` - Bitwise OR
@@ -115,3 +109,23 @@ Jumps to the address `X` if flag zero is clear
 
 ### `convup` - Convert registers up
 ### `convdw` - Convert registers down
+
+## Math
+### `add` - Add registers
+### `sub` - Subtract registers
+### `mul` - Multiply registers
+### `div` - Divide registers
+### `rem` - Get registers division reminder
+### `divrem` - Divide registers and get registers division reminder
+
+### `exp` - Calculate exponential
+### `sqrt` - Calculate register's square root
+### `log` - Calculate register's logarithim
+### `sin` - Calculate register sene value
+### `cos` - Calculate register cossene value
+
+## Atomic
+### `atomic.multiply.add` - Performs `a * b + c`
+### `atomic.swap` - Swaps the values of two targets
+### `atomic.conditional.swap` - Conditionaly swaps the values of two targets
+
